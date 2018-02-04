@@ -1,0 +1,29 @@
+package com.vinu.gui;
+
+import java.awt.event.MouseListener;
+
+import javax.swing.JPanel;
+
+public class MouseActionTester extends JFrame implements MouseListener {
+	
+	JPanel myPanel;
+	JLabel myLabel;
+	
+	public MouseActionTester()
+	{
+		super("Mouse Action Testing");
+		
+		myPanel = new JPanel();
+		myPanel.setLayout(null);
+	}
+	
+	public void mouseEntered(MouseEevent me)
+	{
+		
+	}
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

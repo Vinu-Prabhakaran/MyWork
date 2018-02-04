@@ -1,0 +1,15 @@
+package com.vinu.learn;
+
+public class StringTest {
+	
+	
+	public static void main(String[] args) {
+		String ts = "Calculator";
+		double i=564.008;
+		System.out.println("Length is "+ts.length());
+		System.out.println(ts.substring(4, 8));
+		System.out.println(ts.substring(5));
+		
+		System.out.println(String.valueOf(i));
+	}
+}

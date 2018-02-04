@@ -1,0 +1,35 @@
+package com.vinu.learn;
+
+import java.util.ArrayList;
+
+public class ArrayListTest {
+	
+	private ArrayList<String> arrList;
+	
+	public void addToArrList(String[] inp) {
+		for (int i=0;i<inp.length;i++) {
+			arrList.add(inp[i]);
+		}
+	}
+	
+
+	public void printArrList() {
+		System.out.println("Current List follows :"+'\n'+arrList);
+	}
+	
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		ArrayListTest at = new ArrayListTest();
+		String[] loadData = {"Vinu","Ramya","Geetha","Prabhakaran"};
+		
+		System.out.println("Loading data to ArrayList");
+		at.addToArrList(loadData);
+		
+		at.printArrList();
+		
+		
+		
+		
+	}
+
+}

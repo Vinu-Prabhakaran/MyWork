@@ -1,0 +1,27 @@
+	.listbg{
+	   background-color: beige;
+	   width:200px;
+	}
+	
+    #my-btn{
+		text-align: center;
+		color:black;
+		background-color:rgb(227, 181, 93);
+		border-style:outset;
+        
+	}
+    .clicked{
+		text-align: center;
+		color:black;
+		background-color:navajowhite;
+		border-style:double;
+	}
+    .hidden{
+        visibility: hidden;
+    }
+    .p2color{
+        background-color: aqua;
+    }
+    .p2color1{
+        background-color: beige;
+    }

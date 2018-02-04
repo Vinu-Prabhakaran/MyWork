@@ -1,0 +1,7 @@
+--insert into "Employee" values (14344,'Rejinath R');
+--SELECT table_name FROM information_schema.tables WHERE table_schema = 'public';
+--SELECT column_name FROM information_schema.columns WHERE table_name ='Employee';
+--select * from information_schema.tables;
+--select date(CURRENT_TIMESTAMP);
+--select * from "Employee" order by "emp_Id";
+--update "Employee" set "emp_Name"='Vinu C Prabhakaran' where "emp_Id" =14314;
