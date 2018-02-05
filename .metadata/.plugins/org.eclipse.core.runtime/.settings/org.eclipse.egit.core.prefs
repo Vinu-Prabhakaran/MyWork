@@ -1,4 +1,4 @@
-GitRepositoriesView.GitDirectories=D\:\\MyGit\\hello-world\\.git;
-GitRepositoriesView.GitDirectories.relative=D\:\\MyGit\\hello-world\\.git;
-RepositorySearchDialogSearchPath=D\:\\MyGit
+GitRepositoriesView.GitDirectories=D\:\\WorkBench\\JAVA_Work\\.git;D\:\\MyGit\\hello-world\\.git;
+GitRepositoriesView.GitDirectories.relative=.git;D\:\\MyGit\\hello-world\\.git;
+RepositorySearchDialogSearchPath=D\:\\WorkBench\\JAVA_Work
 eclipse.preferences.version=1
