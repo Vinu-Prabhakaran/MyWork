@@ -33,6 +33,7 @@ public class ArrayListTest {
 		
 		System.out.println("Getting Ammus Index");
 		System.out.println(arrList.indexOf("Ameya"));
+		
 	}
 
 }

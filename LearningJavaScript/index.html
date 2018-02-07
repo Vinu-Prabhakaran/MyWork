@@ -1,0 +1,133 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>Learning JavaScript</title>
+    <link rel="stylesheet" type="text/css" href="css/mystyles.css">
+    <script src="src/main.js"></script>
+</head>
+    <body>
+        <div id="header">
+            <h1>Learning JavaScript</h1>
+            <p>with Bradley - Traversy Media</p>
+        </div>
+        <hr>
+        <div class="container">
+            <div style="border: 2px;margin-left: 15%;max-width: 70%;max-height: 10px">
+                <button  id="showDate" onclick="dispDate()">ShowDate</button>
+                <button  id="clickcount" >ClickMe</button>
+            </div>
+                <br><br>
+            <div style="border: 2px; border-bottom-color: red">
+                <p id="date"></p><br>
+                <p id="showcount"></p>
+            </div>
+        </div>
+        <!-- Detailed list -->
+        <div>
+            <dl>
+                <dt>Coffee</dt>
+                <dd>Black Hot Drink</dd>
+                <dt>Milk</dt>
+                <dd>White cold drink</dd>
+            </dl>
+        
+        </div> 
+        
+        
+        <iframe class="frame1" src="mypage.html" height=300 width=300></iframe>
+        
+        <footer>This a footer with some symbols <span style="color: red"> &copy; &euro; &reg; &spades; &hearts; &diams; &clubs; </span></footer>
+        <script>
+            function dispDate(){
+                var datefield=document.getElementById('date');
+                datefield.innerHTML=Date();
+            }
+            
+            var sd = document.getElementById("showDate");
+            var df = document.getElementById("date");
+
+            sd.addEventListener("mouseover",mouseOver);
+
+            function mouseOver(){
+                console.log('Mouse over ShowDate Button');
+                df.innerHTML="Mouse is now over ShowDate button";
+            }
+            
+            //display count of clicks
+            var clickCounter=0;
+            var ccButton=document.getElementById("clickcount");
+            var showcount=document.getElementById("showcount");
+            ccButton.addEventListener("click",showCount);
+            
+            function showCount(){
+                clickCounter++;
+                showcount.innerHTML="You clicked me "+clickCounter+" times...";
+            }
+
+            
+            var people = [
+                {
+                    name:'Vinu',
+                    age:33
+                },
+                {
+                    name:'Manu',
+                    age:34
+                },
+                {
+                    name:'Arun',
+                    age:35
+                }            
+            ];
+            function ageByTwo(p){
+                    return("Half of "+p.name+"'s age is "+(p.age/2));
+                }
+            
+            console.log(ageByTwo(people[2]));
+            
+            //Object Literal
+            var person = {
+                firstName:'Vinu',
+                lastName:'Prabhakaran',
+                age:33,
+                address:{
+                    street:'1234 Some Street',
+                    city:'Utopia',
+                    zip:12345
+                },
+                fullName: function(){
+                    return (this.firstName+' '+this.lastName);
+                }
+            }
+            
+            //console.log(person.fullName());
+            
+            //Object Constructor
+            
+            var apple = new Object();
+            apple.color='Red';
+            apple.shape='Round';
+            
+            apple.describe = function(){
+                return ("Apple is of color "+this.color+" and Shape "+this.shape);
+            }
+            
+            //Constructor pattern
+            
+            function Fruit(name,color,shape){
+                this.name=name;
+                this.shape=shape;
+                this.color=color;
+                
+                this.fruitDetails = function (){
+                    return(this.name+' is '+this.shape+' in shape and its color is '+this.color);
+                }
+            }
+            
+            var orange=new Fruit('Orange','Orange','Round');
+            var melon=new Fruit('Melon','Green','Round');
+            console.log(melon.fruitDetails());
+        </script>
+        
+    </body>
+</html>
