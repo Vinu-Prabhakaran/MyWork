@@ -1,0 +1,18 @@
+rowkey -->I1234
+name -->Virat Kohli
+age -->29
+country -->India
+game -->Cricket
+role -->Batsman
+rowkey -->I2345
+name -->Jasprit Bumrah
+age -->26
+country -->India
+game -->Cricket
+role -->Bowler
+rowkey -->S1345
+name -->Abraham deVilliers
+age -->32
+country -->South Africa
+game -->Cricket
+role -->Batsman
