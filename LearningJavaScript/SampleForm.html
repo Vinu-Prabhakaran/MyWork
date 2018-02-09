@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>A Simple Form</title>
+        <style>
+            header,footer{
+                padding: 10px;
+                background-color: cadetblue;
+                color: white;
+                }
+            label{
+                width: 30px;    
+            }
+            #container{
+                max-width: 70%;
+                margin: auto;
+                align-self: center;
+            }
+        </style>
+    </head>
+    <body>
+        <header style="text-align: center;vertical-align: top;width: auto">Chirappurath Bank - Login Form </header>
+                <div id = "container" style="text-align: center;padding: 10px">
+                    <form method="post" name="myForm">
+                        <label for="firstName">First Name</label>
+                        <input type="text" name="firstName" maxlength="15">
+                        <label for="lastName">Last Name</label>
+                        <input type="text" name="lastName"><br><br>
+                        <label for="email">Email ID</label>
+                        <input type=email name="email" size="50"><br><br>
+                        <span style="border: 3px groove grey;padding: 5px">
+                        <label for="maleRadio">Male</label>
+                        <input type="radio" name="maleRadio">
+                        <label for="femaleRadio">Female</label>
+                        <input type="radio" name="femaleRadio">
+                        </span><br><br>
+                        <label>Resident of India</label>
+                        <input type="checkbox" name="resident"><br><br>
+                        <input type="submit">
+                    </form>
+                </div>
+        <footer style="text-align: center;vertical-align: bottom">&copy V!nu</footer>
+    </body>
