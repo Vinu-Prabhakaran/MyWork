@@ -7,7 +7,7 @@ public class ArrayListTest {
 	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		ArrayList<String> arrList= new ArrayList<>();
+		ArrayList<String> arrList= new ArrayList<String>();
 		
 		String[] inp = {"Vinu","Ramya","Geetha","Prabhakaran"};
 		
