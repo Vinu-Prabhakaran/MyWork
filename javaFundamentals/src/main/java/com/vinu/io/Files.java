@@ -17,6 +17,8 @@ public class Files {
 		System.out.println("# of list items is "+list.length);
 		System.out.println("File exists?"+f.exists());
 		
+		System.out.println("Absolute path of File is "+f.getAbsolutePath());
+		
 		for (String li : list) {
 			//System.out.println(li);
 			f2 = new File(dirName+"\\"+li);  // We can use a forward slash / as well instead of double backslash

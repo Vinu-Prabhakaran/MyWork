@@ -30,6 +30,7 @@ class Animal implements Serializable{
 		this.type = type;
 	}
 
+	//toString() method will be called when the object is printed
 	public String toString() {
 		return("Animal [name ="+name+", age = "+age+", type = "+type+"]");
 	}

@@ -12,6 +12,7 @@ public class FileWriterTest {
 		String buffRead=null;
 		try {
 			FileWriter fw = new FileWriter("D:\\WorkBench\\JAVA_Work\\IOArea\\FileWriterOut.txt");
+			//FileWriter fw = new FileWriter("..\\IOArea\\Data1.txt");
 			BufferedReader br = new BufferedReader(new FileReader("D:\\WorkBench\\JAVA_Work\\IOArea\\File2.txt"));
 			
 			while((buffRead = br.readLine()) != null) {
