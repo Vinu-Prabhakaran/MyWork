@@ -53,6 +53,20 @@ public class TestSwitch {
 			System.out.println("Not a valid month");
 			break;
 		}
+		
+		//Switch does work with Strings...
+		System.out.println("Enter input");
+		String fruit = inp.next();
+		switch(fruit) {
+		case "Apple":
+			System.out.println(fruit+" is Red");
+			break;
+		case "Orange":
+			System.out.println(fruit+" is Orange in color");
+			break;
+		default:
+			System.out.println("I dont know what "+fruit+" is.");
+		}
 		inp.close();
 	}
 

@@ -27,5 +27,6 @@ target/
 .project
 .classpath
 Servers/
+.metadata/
 /.metadata/
 /.recommenders/
