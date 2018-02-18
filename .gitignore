@@ -28,5 +28,4 @@ target/
 .classpath
 Servers/
 .metadata/
-/.metadata/
-/.recommenders/
+.recommenders/

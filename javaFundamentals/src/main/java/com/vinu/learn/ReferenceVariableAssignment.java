@@ -19,6 +19,7 @@ public class ReferenceVariableAssignment {
 		a = c ;			//	Child can be assigned to parent object
 		c = (Cat) a; 	//	Parent when assigned to child needs type casting
 		
+		
 	}
 
 }

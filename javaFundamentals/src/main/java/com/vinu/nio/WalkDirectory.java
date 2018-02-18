@@ -17,6 +17,7 @@ public class WalkDirectory {
 			//lambda expression used below to filter results in the stream
 			result.filter(p -> p.toString().endsWith(".java")).forEach(System.out::println);
 		}
+	
 	}
 
 
