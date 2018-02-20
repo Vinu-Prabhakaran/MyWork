@@ -27,7 +27,33 @@ public class Practice1 {
 		System.out.println("s1.equals(s2) ? "+s1.equals(s2));
 		System.out.println("s1 == s2 ? "+ (s1==s2));
 		
+		int dayOfWeek;
+		dayOfWeek= 5;
+		switch(dayOfWeek) {
+		case 0:
+		System.out.println("Sunday");
+		default:
+		System.out.println("Weekday");
+		case 6:
+		System.out.println("Saturday");
+		break;
+		}
+		
+		String val = "Vinu";
+		alterString(val);
+		System.out.println("After alter val ="+val);
+		
+		int x1 = 50, x2 = 75;
+		boolean b = x1 >= x2;
+		if(b = true) System.out.println("Success");
+		else System.out.println("Failure");
+				
 		
 }
+	
+	public static void alterString(String s) {
+		
+		s="Altered";
+	}
 
 }
