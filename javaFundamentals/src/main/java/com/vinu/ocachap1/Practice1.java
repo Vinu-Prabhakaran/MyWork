@@ -1,4 +1,4 @@
-package com.vinu.ocapractice;
+package com.vinu.ocachap1;
 
 public class Practice1 {
 

@@ -1,4 +1,4 @@
-package com.vinu.ocapractice;
+package com.vinu.ocachap2;
 
 //Sample program to test Continue 
 public class TernaryTester {

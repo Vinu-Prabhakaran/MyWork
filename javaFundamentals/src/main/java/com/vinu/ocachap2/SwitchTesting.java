@@ -1,4 +1,4 @@
-package com.vinu.ocapractice;
+package com.vinu.ocachap2;
 
 public class SwitchTesting {
 	

@@ -1,4 +1,4 @@
-package com.vinu.ocapractice;
+package com.vinu.ocachap3;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -45,6 +45,8 @@ public class ArrayListEx {
 		
 		String[] arr1 = list1.toArray(new String[0]);
 		String[] mammals = {"monkey","donkey","gorilla"};
+		
+		System.out.println("Array Object equality "+mammals.equals(mammals));
 		
 		System.out.println("List to Array :"+Arrays.toString(arr1));
 		//array to List

@@ -1,4 +1,4 @@
-package com.vinu.ocapractice;
+package com.vinu.ocachap1;
 
 //import java.util.*;	//Date class is present on both imports
 import java.sql.*;

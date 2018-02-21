@@ -20,7 +20,6 @@ INDEX VERSION 1.130+D:\WorkBench\JAVA_Work\.metadata\.plugins\org.eclipse.jdt.co
 1236317852.index
 4062329064.index
 1654674800.index
-1518499603.index
 2279179867.index
 189530877.index
 4005617011.index

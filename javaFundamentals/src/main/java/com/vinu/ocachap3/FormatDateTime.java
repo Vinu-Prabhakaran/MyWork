@@ -1,4 +1,4 @@
-package com.vinu.ocapractice;
+package com.vinu.ocachap3;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -44,7 +44,15 @@ public class FormatDateTime {
 		
 		DateTimeFormatter f2= DateTimeFormatter.ofPattern("dd MMM yyyy");
 		LocalDate date2 = LocalDate.parse("30 Jan 2018",f2);
+		LocalTime time2 = LocalTime.parse("11:33");
 		System.out.println(date2);
+		LocalDateTime datetime2 = LocalDateTime.of(date2,time2);
+		System.out.println(datetime2);
+		
+		DateTimeFormatter f3= DateTimeFormatter.ofPattern("dd MMM yyyy,hh:mm");	//no LocalDateTime parsing
+		LocalDate datetime3 = LocalDate.parse("20 Jan 2018,11:55",f3);
+		System.out.println(datetime3);
+		
 		
 	}
 

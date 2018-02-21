@@ -1,4 +1,4 @@
-package com.vinu.ocapractice;
+package com.vinu.ocachap3;
 
 public class StringBuilderTest {
 
@@ -14,6 +14,8 @@ public class StringBuilderTest {
 		b = b.append("f").append("g");
 		System.out.println("a=" + a);
 		System.out.println("b=" + b);
+		a.reverse();
+		System.out.println("Reversed - "+a);
 		
 		//Important
 		StringBuilder sb = new StringBuilder("animals");
