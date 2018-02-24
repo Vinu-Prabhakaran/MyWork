@@ -7,8 +7,12 @@ public class StringCompare {
 		String s1=new String("Vinu");
 		String s2=new String("Vinu");
 		String s3="Vinu";
-		String s4="Vinu";
+		String s4="Vinu ";
 		
+		System.out.println("s3 == Vinu ? "+ (s3 == "Vinu"));
+		String s5 = s3 +"CP";
+		System.out.println("s3 + CP = VinuCP ? "+(s3+"CP" == "VinuCP"));
+		System.out.println("s5 = VinuCP ? s5 is "+s5+" and compare result is "+(s5 == "VinuCP"));
 		System.out.println(s1 == s3);		//false
 		System.out.println(s4 == s2);		//false
 		System.out.println(s1 == s2);		//false
@@ -27,8 +31,8 @@ public class StringCompare {
 		System.out.println("1"+2+3+"1"+2+3);
 		System.out.println(2+3+"1"+2+3);
 		
-		String s5=s4.trim();
-		System.out.println(s5==s3);
+		String s6=s4.trim();
+		System.out.println(s6==s3);
 	}
 
 }

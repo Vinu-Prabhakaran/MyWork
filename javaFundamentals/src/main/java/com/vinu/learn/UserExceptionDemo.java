@@ -28,7 +28,8 @@ public class UserExceptionDemo {
 			calculator(10,12);
 		}catch (UserException e)
 		{
-			System.out.println("Exception..."+e.toString());
+			System.out.println("Exception..."+e);	//toString method is defined. So no need to print e.toString() - same result
+			
 		}
 	}
 }

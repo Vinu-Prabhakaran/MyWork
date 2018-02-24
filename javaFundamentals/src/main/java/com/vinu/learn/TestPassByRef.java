@@ -28,6 +28,15 @@ public class TestPassByRef {
 		// TODO Auto-generated method stub
 		Test t1 = new Test();
 		t1.Calling();
+		
+		String s1 = "Vinu";
+		modifyString(s1);	//String used pass by value
+		System.out.println("String after modifyString call :"+s1);
+		
 	}
-
+	
+	static void modifyString(String s) {
+		s=s.concat("CP");
+		System.out.println("String in modifyString : "+s);
+	}
 }
