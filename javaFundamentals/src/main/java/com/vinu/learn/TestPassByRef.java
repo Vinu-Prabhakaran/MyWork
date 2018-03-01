@@ -33,10 +33,18 @@ public class TestPassByRef {
 		modifyString(s1);	//String used pass by value
 		System.out.println("String after modifyString call :"+s1);
 		
+		
+		s1 = changeString(s1);
+		System.out.println("String after changeString call :"+s1);
+		
 	}
 	
 	static void modifyString(String s) {
 		s=s.concat("CP");
 		System.out.println("String in modifyString : "+s);
+	}
+	static String changeString(String s) {
+		s=s.concat("CP");
+		return s;
 	}
 }

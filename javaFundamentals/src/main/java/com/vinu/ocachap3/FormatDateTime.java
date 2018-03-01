@@ -15,26 +15,26 @@ public class FormatDateTime {
 		System.out.println(datetime1.format(DateTimeFormatter.ISO_LOCAL_DATE_TIME));
 		
 		LocalDate date = LocalDate.of(2021, Month.APRIL, 20);
-		LocalTime time = LocalTime.of(11, 12, 34);
+		LocalTime time = LocalTime.of(11, 13, 34, 444);
 		LocalDateTime dateTime = LocalDateTime.of(date, time);
 		System.out.println(date.format(DateTimeFormatter.ISO_LOCAL_DATE));
 		System.out.println(time.format(DateTimeFormatter.ISO_LOCAL_TIME));
 		System.out.println(dateTime.format(DateTimeFormatter.ISO_LOCAL_DATE_TIME));
 		
 		DateTimeFormatter shortDateTime = DateTimeFormatter.ofLocalizedDateTime(FormatStyle.SHORT);
-		System.out.println(shortDateTime.format(dateTime));
+		System.out.println("FormatStyle.SHORT - "+shortDateTime.format(dateTime));
 		
 		DateTimeFormatter mediumDateTime = DateTimeFormatter.ofLocalizedDateTime(FormatStyle.MEDIUM);
-		System.out.println(mediumDateTime.format(dateTime));
+		System.out.println("FormatStyle.MEDIUM - "+mediumDateTime.format(dateTime));
 		
 		DateTimeFormatter myFormat1 = DateTimeFormatter.ofPattern("MMM dd yyyy; hh:mm:ss");
-		DateTimeFormatter myFormat2 = DateTimeFormatter.ofPattern("mm D YYYY; HH:mm:ss");
+		DateTimeFormatter myFormat2 = DateTimeFormatter.ofPattern("MM D YYYY; HH:mm:ss");
 		DateTimeFormatter myFormat3 = DateTimeFormatter.ofPattern("hh:mm:ss");
 		
-		System.out.println(dateTime.format(myFormat1));
-		System.out.println(dateTime.format(myFormat2));
-		System.out.println(dateTime.format(myFormat3));
-		System.out.println(time.format(myFormat3));
+		System.out.println("\"MMM dd yyyy; hh:mm:ss\""+dateTime.format(myFormat1));
+		System.out.println("\"MM D YYYY; HH:mm:ss\""+dateTime.format(myFormat2));
+		System.out.println("dateTime in format \"hh:mm:ss\""+dateTime.format(myFormat3));
+		System.out.println("time in format \"hh:mm:ss\""+time.format(myFormat3));
 		
 		DateTimeFormatter f1= DateTimeFormatter.ofPattern("MM dd yyyy");
 		LocalDate date1 = LocalDate.parse("01 21 2015", f1);
