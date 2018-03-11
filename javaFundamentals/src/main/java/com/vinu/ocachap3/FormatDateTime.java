@@ -52,7 +52,7 @@ public class FormatDateTime {
 		DateTimeFormatter f3= DateTimeFormatter.ofPattern("dd MMM yyyy,hh:mm");	//no LocalDateTime parsing
 		LocalDate datetime3 = LocalDate.parse("20 Jan 2018,11:55",f3);
 		System.out.println(datetime3);
-		
+				
 		
 	}
 

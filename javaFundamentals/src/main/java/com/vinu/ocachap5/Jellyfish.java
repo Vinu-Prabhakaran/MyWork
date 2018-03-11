@@ -11,6 +11,7 @@ class Animal {
 	public void callDisplay() {
 		display();
 	}
+	
 }
 
 public class Jellyfish extends Animal {
@@ -37,6 +38,13 @@ public class Jellyfish extends Animal {
 		jellyfish.callDisplay();
 		animal.callDisplay();
 		animal2.callDisplay();
+		
+		System.out.println("Display Parent variable");
+		System.out.println(jellyfish.length);
+		System.out.println(animal.length);
+		System.out.println(animal2.length);
+		
+		
 	}
 
 //parent variable is accessed when called from parent reference object 

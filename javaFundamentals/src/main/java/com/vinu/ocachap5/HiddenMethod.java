@@ -11,6 +11,9 @@ class Marsupial{
 		System.out.println("Marsupial walks on 2 feet ? "+isBiped());
 	}
 	
+	public void getDescription(){
+		System.out.println("Marsupial walks on 2 feet ? "+isBiped());
+	}
 }
 
 class Kangaroo extends Marsupial{
@@ -21,6 +24,10 @@ class Kangaroo extends Marsupial{
 	
 	public void getKangarooDescription(){
 		System.out.println("Kangaroo hops on 2 feet ? "+isBiped());
+	}
+	
+	public void getDescription(){
+		System.out.println("Kangaroo walks on 2 feet ? "+isBiped());
 	}
 	
 }
@@ -41,6 +48,8 @@ public class HiddenMethod{
 		Marsupial something = new Marsupial();
 		something.getMarsupialDescription();	// this also calls parent isBiped method.
 		
+		Marsupial m1 = new Kangaroo();
+		m1.getDescription();	
 	
 	}
 	

@@ -5,6 +5,9 @@ import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.time.Month;
 import java.time.Period;
+import java.time.ZoneOffset;
+import java.time.format.DateTimeFormatter;
+import java.time.format.FormatStyle;
 
 public class DateAndTime {
 
@@ -41,6 +44,14 @@ public class DateAndTime {
 		System.out.println(datetime1.getDayOfMonth());
 		System.out.println(datetime1.getDayOfWeek());
 		System.out.println(datetime1.getDayOfYear());
+		
+		System.out.println("Current time to Epoch Seconds");
+		System.out.println(LocalDateTime.now().toEpochSecond(ZoneOffset.ofTotalSeconds(0)));
+		
+		System.out.println("Current time to Epoch Days");
+		System.out.println(LocalDate.now().toEpochDay());
+		
+		
 				
 	}
 
