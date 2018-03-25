@@ -48,6 +48,7 @@ public class DateAndTime {
 		System.out.println("Current time to Epoch Seconds");
 		System.out.println(LocalDateTime.now().toEpochSecond(ZoneOffset.ofTotalSeconds(0)));
 		
+		
 		System.out.println("Current time to Epoch Days");
 		System.out.println(LocalDate.now().toEpochDay());
 		

@@ -5,8 +5,20 @@ import java.util.List;
 class Basics {
 	
 	private int val;
+	
 	public Basics(int a) {
 		
+	}
+	
+	boolean sell() {
+		
+		int price = 10;
+		if(price<10) {
+			return true;
+		}else if (price >=10) {
+			return false;
+		}else			//will not compile without this else
+			return false;
 	}
 	
 	public static void main(String[] args) {
@@ -16,6 +28,7 @@ class Basics {
 		for (int i=0;i<10;i++) {
 			System.out.println("Enter name#"+(i+1)+" :");
 		}
+		
 		
 		Object ob1 = new Object();
 		Object ob2 = new Object();
@@ -71,6 +84,12 @@ class Basics {
 		List<String> list3 = new ArrayList();
 		List<String> list4 = new ArrayList<>();
 		List<String> list5 = new ArrayList<String>();
+		
+		String temp = null;
+		System.out.println(temp==null);
+		System.out.println(temp.equals(null));
+		
+		
 		
 	}
 

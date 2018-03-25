@@ -12,7 +12,9 @@ public class Computer {
 			System.out.print("Ping");
 		} catch (NullPointerException e) {
 			System.out.print("Pong");
-		throw e;
+			throw e;
+		}catch(Exception e) {
+			
 		}
 	}
 }
