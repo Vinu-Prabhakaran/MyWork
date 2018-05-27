@@ -29,3 +29,4 @@ target/
 Servers/
 .metadata/.plugins/
 .recommenders/
+/.metadata/
