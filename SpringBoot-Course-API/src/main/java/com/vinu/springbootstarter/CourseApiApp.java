@@ -8,7 +8,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class CourseApiApp {
 
 	public static void main(String[] args) {
-		//Static method call tells SpringBoot to start this application, createa servlet container and host this app
+		//Static method call tells SpringBoot to start this application, create a servlet container and host this app
 		SpringApplication.run(CourseApiApp.class, args);
 		
 

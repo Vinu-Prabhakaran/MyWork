@@ -2,10 +2,15 @@
 <section name="Workbench">
 	<section name="MavenProjectWizardArtifactPage">
 		<list key="groupId">
+			<item value="com.vinu.springbootquickstart"/>
+			<item value="org.springframework.boot"/>
 		</list>
 		<list key="name">
+			<item value="Course-API"/>
 		</list>
 		<list key="artifactId">
+			<item value="SpringBoot-Course-API"/>
+			<item value="spring-boot-starter-parent"/>
 		</list>
 		<list key="projectNameTemplate">
 			<item value="[artifactId]"/>
@@ -17,6 +22,7 @@
 		</list>
 		<list key="version">
 			<item value="0.0.1-SNAPSHOT"/>
+			<item value="2.0.3.RELEASE"/>
 		</list>
 	</section>
 	<section name="org.eclipse.m2e.core.pom.dependencies">
@@ -77,13 +83,10 @@
 	</section>
 	<section name="Maven2ProjectWizardArchifactPage">
 		<list key="package">
-			<item value="com.vinu.gui"/>
 		</list>
 		<list key="groupId">
-			<item value="com.vinu.gui"/>
 		</list>
 		<list key="artifactId">
-			<item value="AppletsAndGUI"/>
 		</list>
 		<list key="projectNameTemplate">
 			<item value="[artifactId]"/>
