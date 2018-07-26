@@ -18,6 +18,8 @@ public class DrawingApp {
 		Triangle triangle = (Triangle) context.getBean("triangle");
 		triangle.draw();
 		
+		Quadrilateral quad=(Quadrilateral)context.getBean("quadrilateral");
+		quad.draw();
 	}
 
 }

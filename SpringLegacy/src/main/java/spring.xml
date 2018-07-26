@@ -6,5 +6,30 @@
 		<constructor-arg type="java.lang.String" value="Equilateral" />
 		<constructor-arg type="int" value="20" />
 	</bean>
-
+	<bean id="quadrilateral" class="com.vinu.spring.Quadrilateral">
+		<property name="pointA" ref="origin"/>
+		<property name="pointB" ref="bottomRight"/>
+		<property name="pointC" ref="topLeft"/>
+		<property name="pointD" ref="topRight"/>
+	</bean>
+	
+	<bean id="origin" class="com.vinu.spring.Point">
+		<property name="x" value="0"/>
+		<property name="y" value="0"/>
+	</bean>
+	
+	<bean id="bottomRight" class="com.vinu.spring.Point">
+		<property name="x" value="20"/>
+		<property name="y" value="0"/>
+	</bean>
+	
+	<bean id="topLeft" class="com.vinu.spring.Point">
+		<property name="x" value="0"/>
+		<property name="y" value="20"/>
+	</bean>
+	
+	<bean id="topRight" class="com.vinu.spring.Point">
+		<property name="x" value="20"/>
+		<property name="y" value="20"/>
+	</bean>
 </beans>
