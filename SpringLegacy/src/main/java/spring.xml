@@ -10,7 +10,10 @@
 		<property name="pointA" ref="origin"/>
 		<property name="pointB" ref="bottomRight"/>
 		<property name="pointC" ref="topLeft"/>
-		<property name="pointD" ref="topRight"/>
+		<!-- <property name="pointD" ref="topRight"/> -->
+		<property name="pointD">
+			<ref bean="topRight"/>  <!-- Makes sure that an bean with id topRight is there -->
+		</property>
 	</bean>
 	
 	<bean id="origin" class="com.vinu.spring.Point">
@@ -32,4 +35,5 @@
 		<property name="x" value="20"/>
 		<property name="y" value="20"/>
 	</bean>
+	<alias name="triangle" alias="tri-alias" />
 </beans>
