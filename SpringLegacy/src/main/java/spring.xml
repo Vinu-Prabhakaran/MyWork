@@ -36,4 +36,19 @@
 		<property name="y" value="20"/>
 	</bean>
 	<alias name="triangle" alias="tri-alias" />
+	
+	<bean id="pentagon" class="com.vinu.spring.Pentagon">
+		<property name="points">
+			<list>
+				<ref bean="origin"/>
+				<ref bean="bottomRight"/>
+				<ref bean="topLeft"/>
+				<bean class="com.vinu.spring.Point">
+					<property name="x" value="30"/>
+				</bean>
+				<ref bean="topRight"/>
+			</list>
+		</property>
+	</bean>
+	
 </beans>

@@ -23,6 +23,9 @@ public class DrawingApp {
 		
 		Triangle t2 = (Triangle) context.getBean("tri-alias");
 		t2.draw();
+		
+		Pentagon p1= (Pentagon) context.getBean("pentagon");
+		p1.draw();
 	}
 
 }
