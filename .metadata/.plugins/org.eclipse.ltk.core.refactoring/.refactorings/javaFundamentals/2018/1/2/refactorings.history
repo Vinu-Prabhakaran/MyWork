@@ -1,4 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<session version="1.0">
-<refactoring comment="Rename type &apos;com.vinu.learn.Scholarship&apos; to &apos;Student&apos;&#x0D;&#x0A;- Original project: &apos;mavenDemoApp&apos;&#x0D;&#x0A;- Original element: &apos;com.vinu.learn.Scholarship&apos;&#x0D;&#x0A;- Renamed element: &apos;com.vinu.learn.Student&apos;&#x0D;&#x0A;- Update references to refactored element&#x0D;&#x0A;- Update textual occurrences in comments and strings" description="Rename type &apos;Scholarship&apos;" flags="589830" id="org.eclipse.jdt.ui.rename.type" input="/src\/main\/java&lt;com.vinu.learn{Scholarship.java[Scholarship" matchStrategy="1" name="Student" qualified="false" references="true" similarDeclarations="false" stamp="1515353286030" textual="false" version="1.0"/>
-</session>
