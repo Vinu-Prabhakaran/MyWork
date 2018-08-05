@@ -9,9 +9,9 @@ public class CreatePath {
 
 	public static void main(String[] args) throws IOException {
 		// TODO Auto-generated method stub
-		Path p1 = Paths.get("D:\\WorkBench\\JAVA_Work\\IOArea\\File2.txt");
+		Path p1 = Paths.get("D:\\WorkBench\\MyEclipseworkSpace\\MyWork\\IOArea\\File2.txt");
 		Path p2 = Paths.get("../IOArea/Data.txt");
-		Path p3 = Paths.get("D:\\WorkBench\\JAVA_Work\\IOArea\\File1.txt");
+		Path p3 = Paths.get("D:\\WorkBench\\MyEclipseworkSpace\\MyWork\\IOArea\\File1.txt");
 		Path p4 = Paths.get("../IOArea");
 		
 		System.out.println("p2 is absolute? "+p2.isAbsolute());

@@ -10,7 +10,7 @@ public class ListFiles {
 
 	public static void main(String[] args) throws IOException {
 		// TODO Auto-generated method stub
-		Path p1 = Paths.get("D:\\WorkBench\\JAVA_Work\\IOArea\\File2.txt");
+		Path p1 = Paths.get("D:\\WorkBench\\MyEclipseworkSpace\\MyWork\\IOArea\\File2.txt");
 		
 		if(Files.isDirectory(p1)) {
 			try(Stream<Path> fileData=Files.list(p1)){

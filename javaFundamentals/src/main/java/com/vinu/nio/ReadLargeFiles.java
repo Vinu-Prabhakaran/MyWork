@@ -11,7 +11,7 @@ public class ReadLargeFiles {
 
 	public static void main(String[] args) throws IOException {
 		// TODO Auto-generated method stub
-		Path p1 = Paths.get("D:\\WorkBench\\JAVA_Work\\IOArea\\File2.txt");
+		Path p1 = Paths.get("D:\\WorkBench\\MyEclipseworkSpace\\MyWork\\IOArea\\File2.txt");
 		
 		try(Stream<String> str = Files.lines(p1)){
 			//print all lines

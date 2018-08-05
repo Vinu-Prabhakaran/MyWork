@@ -9,9 +9,9 @@ public class FilesClass {
 
 	public static void main(String[] args) throws IOException {
 		// TODO Auto-generated method stub
-		Path p1 = Paths.get("D:\\WorkBench\\JAVA_Work\\IOArea\\File2.txt");
+		Path p1 = Paths.get("D:\\WorkBench\\MyEclipseworkSpace\\MyWork\\IOArea\\File2.txt");
 		Path p2 = Paths.get("../IOArea1/newDir");
-		//Path p3 = Paths.get("D:\\WorkBench\\JAVA_Work\\IOArea\\File1.txt");
+		//Path p3 = Paths.get("D:\WorkBench\MyEclipseworkSpace\MyWork\IOArea\\File1.txt");
 		Path p4 = Paths.get("../IOArea");
 		
 		//Checking if a file or directory exists
@@ -31,7 +31,7 @@ public class FilesClass {
 		Files.move(Paths.get("../IOArea/Filetomove.txt"),Paths.get("../IOArea1/newDir/Filemoved.txt"));
 		
 		//Deleting file or empty directory
-		Files.delete(Paths.get("D:\\WorkBench\\JAVA_Work\\IOArea1\\newDir\\newIOArea"));
+		Files.delete(Paths.get("D:\\WorkBench\\MyEclipseworkSpace\\MyWork\\IOArea\\newDir\\newIOArea"));
 		
 		}
 

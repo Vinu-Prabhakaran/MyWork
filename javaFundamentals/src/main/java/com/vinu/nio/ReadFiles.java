@@ -11,7 +11,7 @@ public class ReadFiles {
 
 	public static void main(String[] args) throws IOException {
 		// TODO Auto-generated method stub
-		Path p1 = Paths.get("D:\\WorkBench\\JAVA_Work\\IOArea\\File2.txt");
+		Path p1 = Paths.get("D:\\WorkBench\\MyEclipseworkSpace\\MyWork\\IOArea\\File2.txt");
 		
 		BufferedReader br = Files.newBufferedReader(p1);
 		String s = null;

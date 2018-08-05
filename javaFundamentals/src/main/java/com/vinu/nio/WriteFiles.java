@@ -10,10 +10,11 @@ import java.nio.file.Paths;
 public class WriteFiles {
 
 	public static void main(String[] args) {
-		Path p1 = Paths.get("D:\\WorkBench\\JAVA_Work\\IOArea\\PathWrite1.txt");
+		Path p1 = Paths.get("D:\\WorkBench\\MyEclipseworkSpace\\MyWork\\IOArea\\PathWrite1.txt");
 		BufferedWriter bw = null;
 		try {
 			bw = Files.newBufferedWriter(p1,Charset.forName("UTF-16"));
+			System.out.println("Created buffered Writer");
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -21,6 +22,7 @@ public class WriteFiles {
 		String content="Hello";
 		try {
 			bw.write(content);
+			System.out.println("Written to file");
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

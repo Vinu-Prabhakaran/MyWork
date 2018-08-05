@@ -11,7 +11,7 @@ public class BasicFileAttributesSample {
 
 	public static void main(String[] args) throws IOException {
 		// TODO Auto-generated method stub
-		Path p1 = Paths.get("D:\\WorkBench\\JAVA_Work\\IOArea\\File2.txt");
+		Path p1 = Paths.get("D:\\WorkBench\\MyEclipseworkSpace\\MyWork\\IOArea\\file2.txt");
 		
 		System.out.println("Is path a directory ? "+Files.isDirectory(p1));
 		System.out.println("Is path a file ? "+Files.isRegularFile(p1));
