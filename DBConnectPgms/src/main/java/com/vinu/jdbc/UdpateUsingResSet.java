@@ -10,21 +10,24 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Properties;
 
-import org.postgresql.Driver;
 
-public class QueryTable {
+public class UdpateUsingResSet {
 
 public static void main(String[] args) {
 		
-		Driver d = new Driver();
+		try {
+			Class.forName(DBConnectConstants.POSTGRESDRIVER);
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		}	
 		Connection con=null;
 		Properties prop=new Properties();
 		InputStream inp = null;
 		try {
 			inp = new FileInputStream("D:/WorkBench/MyEclipseworkSpace/MyWork/DBConnectPgms/src/main/config/login.properties");
 			prop.load(inp);
-			System.out.println("UserName :"+prop.getProperty("user"));
-			System.out.println("Password :"+prop.getProperty("password"));
+			System.out.println("UserName :"+prop.getProperty(DBConnectConstants.USER));
+			System.out.println("Password :"+prop.getProperty(DBConnectConstants.PASSWORD));
 					
 		}
 		catch(IOException ex)
@@ -34,8 +37,7 @@ public static void main(String[] args) {
 		}
 		
 		try {
-			DriverManager.registerDriver(d);
-			con = DriverManager.getConnection("jdbc:postgresql://localhost:5432/vinutest",prop);
+			con = DriverManager.getConnection(prop.getProperty(DBConnectConstants.URL),prop);
 			System.out.println("PostgreSQL connected succesfully to vinutest DB");
 		} 
 		catch(Exception ex) {
@@ -43,16 +45,16 @@ public static void main(String[] args) {
 		}
 		
 		try {
-			Statement stmt=con.createStatement();
-			String query="SELECT * FROM department";
+			Statement stmt=con.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE, ResultSet.CLOSE_CURSORS_AT_COMMIT);
+			String query="SELECT * FROM  myproduct "
+						+" WHERE prodid=2345";
 			ResultSet rs=stmt.executeQuery(query);
-			System.out.println("**** Details from department Table ****");
-			System.out.println("Id\tDepartment\t\t\t\t\tEmployeeId");	
-			while(rs.next()) {
-				
-				System.out.println("Row # "+rs.getRow()+" => "+rs.getInt(1)+"\t"+rs.getString(2)+rs.getInt(3));
-				System.out.println(rs.getString("id")+"\t"+rs.getString("dept")+rs.getString("emp_id"));
-							}
+			
+			rs.next();	//first row which matched the serach condition
+			System.out.println(rs.getString("prodid")+"\t"+rs.getString("prodname")+rs.getString("rate"));
+			rs.updateString("prodname","Samsung HD TV");
+			rs.updateRow();
+			
 		}
 		catch(SQLException ex) {
 			System.out.println("Exception "+ex);
@@ -61,4 +63,5 @@ public static void main(String[] args) {
 	}
 
 }
+
 

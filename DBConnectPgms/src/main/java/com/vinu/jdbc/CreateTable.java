@@ -51,7 +51,7 @@ public static void main(String[] args) {
 						+"rate REAL)";
 			boolean b=stmt.execute(query);
 			System.out.println("Table myproduct create succesfully");
-			System.out.println("Execure Result :"+b);	
+			System.out.println("Execute Result :"+b);	
 			
 		}
 		catch(SQLException ex) {
