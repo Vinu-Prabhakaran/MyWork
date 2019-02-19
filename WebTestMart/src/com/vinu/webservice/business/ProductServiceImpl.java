@@ -3,6 +3,8 @@ package com.vinu.webservice.business;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.vinu.webservice.model.Product;
+
 public class ProductServiceImpl {
 	
 	List<String> bookList = new ArrayList<>();
@@ -47,6 +49,15 @@ public class ProductServiceImpl {
 			return null;
 				
 		}
+	}
+	
+	public List<Product> getProducts_v2(String Product){
+		
+		List<Product> prodList=new ArrayList<>();
+		prodList.add(new Product("JavaBrains","1234",1234.56));
+		prodList.add(new Product("LetUsC","2334",234.56));
+		prodList.add(new Product("LetUsC++","3456",3456.56));
+		return prodList;
 	}
 	
 	public boolean addProduct(String category,String item) {
