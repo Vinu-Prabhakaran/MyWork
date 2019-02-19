@@ -25,9 +25,12 @@ public class GetHolidayList
     		System.out.println("CountryCode :" + cCode.getCode()+", Description :"+cCode.getDescription());
     	}
     	
+    	System.out.println("Available Country List using Lambdas");
+    	listCtryCode.stream().forEach(cc -> System.out.println("CountryCode :" + cc.getCode()+", Description :"+cc.getDescription()));
+    	
     	System.out.println("*********List of Holidays for USA**************");
     	for(HolidayCode hCode : listHldayCode) {
-    		System.out.println(hCode.getCode()+" => "+hCode.getDescription()+" , "+hService2Soap.getHolidayDate(Country.UNITED_STATES, hCode.getCode(), 2018));
+    		System.out.println(hCode.getCode()+" => "+hCode.getDescription()+" , "+hService2Soap.getHolidayDate(Country.UNITED_STATES, hCode.getCode(), 2019));
     	}
     }
 }

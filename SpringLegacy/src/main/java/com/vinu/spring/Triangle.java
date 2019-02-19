@@ -53,11 +53,11 @@ public class Triangle implements ApplicationContextAware,BeanNameAware{
 	
 	// User Defined init . MOdify xml file to attach this method to the triangle bean.
 	public void myInit() {
-		System.out.println("myInit of triangle beean");
+		System.out.println("myInit of triangle bean");
 	}
 	// User Defined destroy . MOdify xml file to attach this method to the triangle bean.
 	public void myCleanup() {
-		System.out.println("Cleanup of triangle beean");
+		System.out.println("Cleanup of triangle bean");
 	}
 
 

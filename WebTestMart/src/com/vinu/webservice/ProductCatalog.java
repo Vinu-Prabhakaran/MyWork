@@ -7,12 +7,12 @@ import javax.jws.WebService;
 
 import com.vinu.webservice.business.ProductServiceImpl;
 
-@WebService
+@WebService(name="TestMartCatalog1",portName="TestMartCatalogPort1")
 public class ProductCatalog {
 	
 	ProductServiceImpl productService = new ProductServiceImpl();
 	
-	@WebMethod
+	@WebMethod()
 	public List<String> getProductCategories(){
 		
 		return productService.getProductCategories();
