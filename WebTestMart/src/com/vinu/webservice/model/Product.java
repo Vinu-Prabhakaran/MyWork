@@ -1,11 +1,19 @@
 package com.vinu.webservice.model;
 
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
+
+
+@XmlRootElement(name="Product")
+@XmlType(propOrder= {"name","price","sku"})  // to set the order of xml elements
 public class Product {
 	
 	private String name;
 	private String sku;
 	private double price;
 	
+	@XmlElement(name="ProdName")  //tag name will be ProdName instead of default which is class variable name
 	public String getName() {
 		return name;
 	}
@@ -31,6 +39,11 @@ public class Product {
 		this.sku = sku;
 		this.price = price;
 	}
+	// A no args constructor is necessary when we use JAXB annotations. For JAXB to instantiate Objects.
+	public Product() {
+		super();
+	}
+	
 	
 	
 

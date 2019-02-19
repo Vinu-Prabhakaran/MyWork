@@ -3,6 +3,7 @@ package com.vinu.webservice;
 import java.util.List;
 
 import javax.jws.WebMethod;
+import javax.jws.WebResult;
 import javax.jws.WebService;
 
 import com.vinu.webservice.model.Product;
@@ -17,6 +18,7 @@ public interface ProductCatalogInterface {
 	List<String> getProducts(String category);
 
 	@WebMethod
+	@WebResult(name="ProductResult")
 	List<Product> getProducts_v2(String Product);
 
 	@WebMethod
