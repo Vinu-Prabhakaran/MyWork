@@ -11,7 +11,7 @@ public class InvalidInputException extends Exception {
 		this.errorDetails=errorDetails;
 	}
 	
-	public String getErrorDetails() {
+	public String getDetails() {
 		return errorDetails;
 	}
 
