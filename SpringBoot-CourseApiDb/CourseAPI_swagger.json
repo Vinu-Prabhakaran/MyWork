@@ -1,0 +1,237 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "description": "Topic Management ReST API",
+    "version": "1.0",
+    "title": "Spring Boot Topic ReST Api",
+    "contact": {
+      "name": "Vinu Prabhakaran",
+      "url": "https://www.vinus-website.com",
+      "email": "vinu.cp@gmail.com"
+    }
+  },
+  "host": "vinus-lenovo:8080",
+  "basePath": "/",
+  "tags": [
+    {
+      "name": "topic-controller",
+      "description": "Operations Related to Topic Management"
+    }
+  ],
+  "paths": {
+    "/topics": {
+      "get": {
+        "tags": [
+          "topic-controller"
+        ],
+        "summary": "View List of all Topics",
+        "operationId": "getAllTopicsUsingGET",
+        "produces": [
+          "*/*"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Topic"
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      },
+      "post": {
+        "tags": [
+          "topic-controller"
+        ],
+        "summary": "Add details of a new Topic",
+        "operationId": "addTopicUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "topic",
+            "description": "topic",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Topic"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/topics/{id}": {
+      "get": {
+        "tags": [
+          "topic-controller"
+        ],
+        "summary": "Get details of a specific Topic",
+        "operationId": "getTopicUsingGET",
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "id",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Topic"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      },
+      "put": {
+        "tags": [
+          "topic-controller"
+        ],
+        "summary": "Update details of a specific Topic",
+        "operationId": "updateTopicUsingPUT",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "id",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "topic",
+            "description": "topic",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Topic"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      },
+      "delete": {
+        "tags": [
+          "topic-controller"
+        ],
+        "summary": "Delete a specific Topic",
+        "operationId": "deleteTopicUsingDELETE",
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "id",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "204": {
+            "description": "No Content"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        },
+        "deprecated": false
+      }
+    }
+  },
+  "definitions": {
+    "Topic": {
+      "type": "object",
+      "properties": {
+        "description": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        }
+      },
+      "title": "Topic"
+    }
+  }
+}
