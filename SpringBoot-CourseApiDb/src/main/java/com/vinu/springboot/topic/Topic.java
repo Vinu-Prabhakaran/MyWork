@@ -3,12 +3,19 @@ package com.vinu.springboot.topic;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+
 @Entity
+@ApiModel(value="Topic Data Model")
 public class Topic {
 	
 	@Id
+	@ApiModelProperty(value="TopicID",required=true,position=1)
 	private String id;
+	@ApiModelProperty(value="Topic Name",position=2)
 	private String name;
+	@ApiModelProperty(value="Description of Topic",position=3)
 	private String description;
 	
 	public Topic() {
