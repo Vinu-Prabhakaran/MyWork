@@ -31,6 +31,13 @@ public class DrawingApp {
 		
 		Pentagon p1= (Pentagon) context.getBean("pentagon");
 		p1.draw();
+		
+		System.out.println("Now lets draw by coding to Interface Shape");
+		Shape shape=(Shape) context.getBean("circle");
+		shape.draw();
+		
+		shape= (Shape) context.getBean("quadrilateral");
+		shape.draw();
 	}
-
+	
 }

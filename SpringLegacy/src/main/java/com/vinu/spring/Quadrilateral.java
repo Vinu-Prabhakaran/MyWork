@@ -1,6 +1,6 @@
 package com.vinu.spring;
 
-public class Quadrilateral {
+public class Quadrilateral implements Shape{
 	
 	private Point pointA;
 	private Point pointB;

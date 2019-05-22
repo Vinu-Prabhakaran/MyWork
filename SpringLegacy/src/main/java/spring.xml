@@ -51,4 +51,9 @@
 		</property>
 	</bean>
 	
+	
+	<bean id="circle" class="com.vinu.spring.Circle">
+		<property name="pointA" ref="topRight"></property>
+	</bean>
+	
 </beans>
