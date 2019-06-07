@@ -1,5 +1,7 @@
 package com.vinu.spring;
 
+import java.util.Arrays;
+
 //import org.springframework.beans.factory.BeanFactory;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.AbstractApplicationContext;
@@ -18,7 +20,7 @@ public class DrawingApp {
 		AbstractApplicationContext context=new ClassPathXmlApplicationContext("spring.xml");
 		context.registerShutdownHook();
 		//ApplicationContext context=new ClassPathXmlApplicationContext("spring.xml");
-				
+		System.out.println(Arrays.toString(context.getBeanDefinitionNames()));
 		//Triangle triangle = (Triangle)factory.getBean("triangle");
 		Triangle triangle = (Triangle) context.getBean("triangle");
 		triangle.draw();

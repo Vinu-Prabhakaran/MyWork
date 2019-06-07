@@ -4,6 +4,7 @@
 package com.vinu.spring;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.context.MessageSource;
 
 /**
@@ -16,6 +17,8 @@ public class Circle implements Shape {
 	private Point pointA;
 	@Autowired
 	private MessageSource messageSource;
+	@Autowired
+	private ApplicationEventPublisher publisher;
 	
 	public MessageSource getMessageSource() {
 		return messageSource;
@@ -30,6 +33,8 @@ public class Circle implements Shape {
 		/*System.out.println("Circle drawn with center at ("+
 	    this.getPointA().getX()+","+this.getPointA().getY()+")"); */
 		System.out.println(this.messageSource.getMessage("circle.point", new Object[] {this.getPointA().getX(), this.getPointA().getY()},"Default Circle point Message", null));
+		DrawEvent drawEvent=new DrawEvent(this);
+		publisher.publishEvent(drawEvent);
 	}
 
 	public Point getPointA() {
