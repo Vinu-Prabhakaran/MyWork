@@ -3,8 +3,6 @@
  */
 package com.vinu.webservices.movieratingsdataservice.resources;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -12,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.vinu.webservices.movieratingsdataservice.models.Rating;
+import com.vinu.webservices.movieratingsdataservice.models.UserRating;
 import com.vinu.webservices.movieratingsdataservice.service.RatingsService;
 
 /**
@@ -32,7 +31,7 @@ public class RatingsResource {
 	}
 	
 	@GetMapping("/byrating/{rating}")
-	public List<String> getMoviesByRating(@PathVariable Integer rating) {
+	public UserRating getMoviesByRating(@PathVariable Integer rating) {
 		return ratingsService.getMovieListByRating(rating);
 	}
 }
