@@ -3,21 +3,23 @@
  */
 package com.vinu.webservices.movieinfoservice.models;
 
+import java.util.List;
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 /**
  * @author Vinu Prabhakaran
- *         on Jan 18, 2020
+ *         on Jan 22, 2020
  *
  */
 @Getter
 @Setter
+@NoArgsConstructor
 @AllArgsConstructor
-public class Movie {
+public class Movies {
 	
-	private String movieId;
-	private String title;
-	private String description;
+	List<Movie> movies;
 }

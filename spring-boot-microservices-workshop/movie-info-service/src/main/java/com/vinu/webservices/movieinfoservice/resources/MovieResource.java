@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.vinu.webservices.movieinfoservice.models.Movie;
+import com.vinu.webservices.movieinfoservice.models.Movies;
 import com.vinu.webservices.movieinfoservice.services.MovieInfoService;
 
 /**
@@ -29,7 +30,7 @@ public class MovieResource {
 	MovieInfoService movieInfoService;
 	
 	@GetMapping
-	public List<Movie> getAllMovies(){
+	public Movies getAllMovies(){
 		
 		return movieInfoService.getAllMovies();
 	}
