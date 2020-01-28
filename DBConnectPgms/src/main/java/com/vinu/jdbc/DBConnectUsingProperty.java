@@ -17,7 +17,8 @@ public class DBConnectUsingProperty {
 		Properties prop=new Properties();
 		InputStream inp = null;
 		try {
-			inp = new FileInputStream("D:/WorkBench/MyEclipseworkSpace/MyWork/DBConnectPgms/src/main/config/config.properties");
+			//System.out.println(System.getProperty("user.dir"));
+			inp = new FileInputStream("src/main/config/config.properties");
 			prop.load(inp);
 			
 			System.out.println("DataBase :"+prop.getProperty("database"));
