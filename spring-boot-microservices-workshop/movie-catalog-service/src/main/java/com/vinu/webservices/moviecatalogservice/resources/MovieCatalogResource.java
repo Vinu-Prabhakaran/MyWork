@@ -13,10 +13,12 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
+import org.springframework.web.reactive.function.client.WebClient;
 
 import com.vinu.webservices.moviecatalogservice.models.CatalogItem;
 import com.vinu.webservices.moviecatalogservice.models.CatalogItems;
 import com.vinu.webservices.moviecatalogservice.models.Movie;
+import com.vinu.webservices.moviecatalogservice.models.Movies;
 import com.vinu.webservices.moviecatalogservice.models.UserRating;
 
 /**
@@ -47,6 +49,13 @@ public class MovieCatalogResource {
 		ratings.getRatingList().forEach(r -> {
 			System.out.println("Call MovieInfo for "+r.getMovieId());
 			Movie movie=restTemplate.getForEntity(moviesUrl+r.getMovieId(), Movie.class).getBody();
+			//WebClient Substitute for RestTemplate
+			/*Movie movie=WebClient.builder().build()
+						.get()
+						.uri(moviesUrl+r.getMovieId())
+						.retrieve()
+						.bodyToMono(Movie.class)
+						.block();*/
 			catItems.add(new CatalogItem(movie.getTitle(),movie.getDescription(),r.getRating()));
 			});
 		return new CatalogItems(catItems);
