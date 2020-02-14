@@ -32,8 +32,8 @@ public class KafkaSampleProducer {
 	public static void main(String[] args) {
 		
 		Producer<Long, String> producer=createProducer();
-		int i=1;
-		for (i=0;i<KafkaConstants.MESSAGE_COUNT;i++) {
+		int i;
+		for (i=1;i<=KafkaConstants.MESSAGE_COUNT;i++) {
 		ProducerRecord<Long, String> record= new ProducerRecord<Long, String>(KafkaConstants.TOPIC_NAME, "This is message #"+i);
 			try {
 				RecordMetadata metaData= producer.send(record).get();
