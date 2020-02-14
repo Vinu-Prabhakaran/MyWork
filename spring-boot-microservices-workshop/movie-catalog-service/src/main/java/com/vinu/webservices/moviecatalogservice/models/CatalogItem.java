@@ -19,5 +19,5 @@ public class CatalogItem {
 	
 	private String title;
 	private String description;
-	private int rating;
+	private Integer rating;
 }

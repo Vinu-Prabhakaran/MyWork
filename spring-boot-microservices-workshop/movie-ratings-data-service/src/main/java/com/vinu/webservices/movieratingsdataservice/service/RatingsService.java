@@ -21,10 +21,10 @@ import com.vinu.webservices.movieratingsdataservice.models.UserRating;
 @Service
 public class RatingsService {
 	
-	UserRating ratings = new UserRating(Arrays.asList(new Rating("M123", 9),
-			   new Rating("M234", 7),
-			   new Rating("M345", 8),
-			   new Rating("M456", 9)));
+	UserRating ratings = new UserRating(Arrays.asList(new Rating("200", 9),
+			   new Rating("100", 7),
+			   new Rating("101", 8),
+			   new Rating("102", 9)));
 
 	public UserRating getMovieListByRating(Integer rating) {
 		//return ratings.getRatingList().stream().filter(r -> r.getRating().equals(rating)).map(r -> r.getMovieId()).collect(Collectors.toList());
