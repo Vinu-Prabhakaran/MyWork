@@ -15,10 +15,14 @@ import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVRecord;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.scheduling.annotation.EnableScheduling;
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
 import com.vinu.springboot.coronavirustracker.models.LocationStats;
+
+import lombok.Getter;
 
 
 /**
@@ -27,6 +31,8 @@ import com.vinu.springboot.coronavirustracker.models.LocationStats;
  *
  */
 @Service
+@Getter
+@EnableScheduling
 public class CoronaVirusDataService {
 	
 	@Value("${covid.data.url}")
@@ -37,6 +43,7 @@ public class CoronaVirusDataService {
 	RestTemplate restTemplate;
 	
 	@PostConstruct
+	@Scheduled(cron = "0 0 0 * * *")  //Set to execute Mondnight everyday
 	public void fetchVirusData() throws IOException {
 		
 		String covidData=restTemplate.getForEntity(VIRUS_DATA_URL, String.class).getBody();
