@@ -59,11 +59,12 @@ public class CoronaVirusDataService {
 			locationStat.setCountry(record.get("Country/Region"));
 			locationStat.setState(record.get("Province/State"));
 			locationStat.setLatestTotalCases(Integer.parseInt(record.get(record.size()-1)));
+			locationStat.setDiffFromPrevDay(Integer.parseInt(record.get(record.size()-1)) - Integer.parseInt(record.get(record.size()-2)));
 			newStats.add(locationStat);
 		}
 		
 		this.allStats=newStats;
-		System.out.println("Filtered stats");
-		allStats.stream().filter(s -> !s.getState().isEmpty()).forEach(System.out::println);
+		//System.out.println("Filtered stats");
+		//allStats.stream().filter(s -> !s.getState().isEmpty()).forEach(System.out::println);
 	}
 }

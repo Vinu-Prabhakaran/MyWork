@@ -2,12 +2,44 @@
 
   <head>
     <title>CoronaVirus Tracker Application</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
    </head>
-	<h1>CoronaVirus Tracker</h1>
+	
   <body>
-  
-    <p th:text="${test}">Welcome to CoronaVirus!</p>
-  
+      <div class="container">
+	  	<h1>CoronaVirus Tracker</h1>
+	  	<p>Application lists the daily cases by Country</p>
+	  	
+	  	<div class="jumbotron jumbotron-fluid">
+		  <div class="container">
+		    <h1 class="display-4" th:text="${totalCases}"></h1>
+		    <p class="lead">Total Cases Worldwide.</p>
+			<hr class="my-4"/>
+		    <h1 class="display-4" th:text="${totalNewCases}"></h1>
+		    <p class="lead">Cases added since last day.</p>
+		  </div>
+		</div>
+	    <p th:text="${test}">Welcome to CoronaVirus!</p>
+
+	    <table class="table table-hover table-bordered">
+	    	<thead class="thead-dark">
+		      <tr>
+		        <th>Country</th>	
+		        <th>State</th>
+		        <th>Total Cases Reported</th>
+		        <th>Changes Since Last Day</th>
+		      </tr>
+	      	</thead>
+	      <tbody>
+		      <tr th:each="locStat : ${locationStats}">
+		        <td th:text="${locStat.country}">China</td>
+		        <td th:text="${locStat.state}">Wuhan</td>
+		        <td th:text="${locStat.latestTotalCases}">123</td>
+		        <td th:text="${locStat.diffFromPrevDay}">0</td>
+		      </tr>
+	      </tbody>
+	    </table>
+  	</div>
   </body>
 
 </html>

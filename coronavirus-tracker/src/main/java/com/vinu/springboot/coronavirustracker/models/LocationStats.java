@@ -20,4 +20,5 @@ public class LocationStats {
 	String state;
 	String country;
 	Integer latestTotalCases;
+	Integer diffFromPrevDay;
 }
