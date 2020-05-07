@@ -31,4 +31,16 @@ import org.junit.jupiter.api.Test;
 		assertEquals(314.1592653589793, mathUtil.computeCircleArea(10));
 		
 	}
+	
+	@Test
+	void testDivide() {
+
+		MathUtils mathUtil=new MathUtils();
+		try {
+			mathUtil.divide(2, 0);
+		}catch (Exception e) {
+			assertTrue(e instanceof ArithmeticException,"Division By Zero should throw ArithMatic exception.");
+		}
+		assertEquals(2,mathUtil.divide(10, 5),"Division gave wrong value");
+	}
 }
