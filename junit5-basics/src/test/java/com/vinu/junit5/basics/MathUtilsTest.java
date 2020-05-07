@@ -23,5 +23,12 @@ import org.junit.jupiter.api.Test;
 		MathUtils mathUtil=new MathUtils();
 		assertEquals(2, mathUtil.add(1, 1), "Add Test#1 failed");
 	}
-
+	
+	@Test
+	void testComputeCircleArea() {
+		
+		MathUtils mathUtil=new MathUtils();
+		assertEquals(314.1592653589793, mathUtil.computeCircleArea(10));
+		
+	}
 }
