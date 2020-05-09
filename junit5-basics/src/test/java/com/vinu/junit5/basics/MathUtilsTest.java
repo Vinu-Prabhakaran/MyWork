@@ -1,5 +1,5 @@
 /**
- * 
+ * Test Class for MathUtils
  */
 package com.vinu.junit5.basics;
 
@@ -9,6 +9,7 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
 import org.junit.jupiter.api.TestInstance.Lifecycle;
@@ -40,14 +41,30 @@ import org.junit.jupiter.api.TestInstance.Lifecycle;
 	/**
 	 * Test method for {@link com.vinu.junit5.basics.MathUtils#add(int, int)}.
 	 */
-	@Test
-	@DisplayName("Test add method")
-	void testAdd() {
-
-		assertEquals(2, mathUtil.add(1, 1), "Add Test#1 failed");
+	@Nested
+	class AddTest{
+		@Test
+		@DisplayName("Test add method")
+		void testAdd() {
+	
+			assertEquals(0, mathUtil.add(1, -1), "Add +ve and -ve failed");
+		}
+		@Test
+		@DisplayName("Test add method for +ve")
+		void testAddPositive() {
+	
+			assertEquals(3, mathUtil.add(2, 1), "Add +ve and +ve failed");
+		}
+		@Test
+		@DisplayName("Test add method for -ve")
+		void testAddNegative() {
+	
+			assertEquals(-2, mathUtil.add(-1, -1), "Add -ve and -ve failed");
+		}
 	}
 	
 	@Test
+	@DisplayName("Test circleArea method")
 	void testComputeCircleArea() {
 		
 		assertEquals(314.1592653589793, mathUtil.computeCircleArea(10));
@@ -55,6 +72,7 @@ import org.junit.jupiter.api.TestInstance.Lifecycle;
 	}
 	
 	@Test
+	@DisplayName("Test divide method")
 	void testDivide() {
 
 		assertThrows(ArithmeticException.class, () -> mathUtil.divide(2, 0),"Division By Zero should return ArithmeticException");
