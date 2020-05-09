@@ -25,7 +25,7 @@ import org.junit.jupiter.api.Test;
 	}
 	
 	@BeforeAll
-	void beforeAll() {
+	static void beforeAll() {
 		System.out.println("beforeAll ...");
 	}
 	@BeforeEach
