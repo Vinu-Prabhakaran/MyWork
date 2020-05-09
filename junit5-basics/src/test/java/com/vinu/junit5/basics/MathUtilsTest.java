@@ -17,6 +17,10 @@ import org.junit.jupiter.api.Test;
 	 
 	MathUtils mathUtil;
 	
+	public MathUtilsTest() {
+		super();
+		System.out.println("Creating MathUtil instance");
+	}
 	@BeforeEach
 	void init(){
 		
