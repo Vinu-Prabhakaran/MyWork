@@ -8,13 +8,15 @@ import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestInstance;
+import org.junit.jupiter.api.TestInstance.Lifecycle;
 
 /**
  * @author Vinu Prabhakaran
  *         on May 5, 2020
  *
  */
-
+@TestInstance(Lifecycle.PER_CLASS)
  class MathUtilsTest {
 	 
 	MathUtils mathUtil;
@@ -25,7 +27,7 @@ import org.junit.jupiter.api.Test;
 	}
 	
 	@BeforeAll
-	static void beforeAll() {
+	void beforeAll() {
 		System.out.println("beforeAll ...");
 	}
 	@BeforeEach
