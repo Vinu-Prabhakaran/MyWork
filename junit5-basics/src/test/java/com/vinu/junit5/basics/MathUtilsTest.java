@@ -7,6 +7,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
 import org.junit.jupiter.api.TestInstance.Lifecycle;
@@ -39,6 +40,7 @@ import org.junit.jupiter.api.TestInstance.Lifecycle;
 	 * Test method for {@link com.vinu.junit5.basics.MathUtils#add(int, int)}.
 	 */
 	@Test
+	@DisplayName("Test add method")
 	void testAdd() {
 
 		assertEquals(2, mathUtil.add(1, 1), "Add Test#1 failed");
