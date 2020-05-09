@@ -7,6 +7,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
@@ -58,5 +59,12 @@ import org.junit.jupiter.api.TestInstance.Lifecycle;
 
 		assertThrows(ArithmeticException.class, () -> mathUtil.divide(2, 0),"Division By Zero should return ArithmeticException");
 		assertEquals(2,mathUtil.divide(10, 5),"Division gave wrong value");
+	}
+	
+	@Test
+	@DisplayName("TDD method. Don't run")
+	@Disabled
+	void tddMethod() {
+		fail("This is a Test Driven Development method.");
 	}
 }
