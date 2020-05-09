@@ -85,4 +85,15 @@ import org.junit.jupiter.api.TestInstance.Lifecycle;
 	void tddMethod() {
 		fail("This is a Test Driven Development method.");
 	}
+	
+	@Test
+	@DisplayName("Test multiply method")
+	void testMultiply() {
+		
+		assertAll("All tests for multiply",
+				() -> assertEquals(2, mathUtil.multiply(2, 1)),
+				() -> assertEquals(4, mathUtil.multiply(2, 2)),
+				() -> assertEquals(-6, mathUtil.multiply(2,-3))
+				);
+	}
 }
