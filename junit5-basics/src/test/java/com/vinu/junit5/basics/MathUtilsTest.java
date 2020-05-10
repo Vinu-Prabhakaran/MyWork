@@ -11,6 +11,7 @@ import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.RepeatedTest;
+import org.junit.jupiter.api.RepetitionInfo;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
 import org.junit.jupiter.api.TestInstance.Lifecycle;
@@ -67,10 +68,22 @@ import org.junit.jupiter.api.TestInstance.Lifecycle;
 	@RepeatedTest(value=3)
 	//@RepeatedTest(3)
 	@DisplayName("Test circleArea method")
-	void testComputeCircleArea() {
+	void testComputeCircleArea(RepetitionInfo repetitionInfo) {
 		
-		assertEquals(314.1592653589793, mathUtil.computeCircleArea(10));
-		
+		int i=repetitionInfo.getCurrentRepetition();
+		switch (i) {
+		case 1:
+			assertEquals(314.1592653589793, mathUtil.computeCircleArea(10));
+			break;
+		case 2:
+			assertEquals(0, mathUtil.computeCircleArea(0));
+			break;
+		case 3:
+			assertEquals(3.141592653589793, mathUtil.computeCircleArea(1));
+			break;
+		default:
+		}
+				
 	}
 	
 	@Test
