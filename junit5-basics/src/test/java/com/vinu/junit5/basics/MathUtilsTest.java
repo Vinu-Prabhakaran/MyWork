@@ -12,6 +12,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.RepeatedTest;
 import org.junit.jupiter.api.RepetitionInfo;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
 import org.junit.jupiter.api.TestInstance.Lifecycle;
@@ -44,6 +45,7 @@ import org.junit.jupiter.api.TestInstance.Lifecycle;
 	 * Test method for {@link com.vinu.junit5.basics.MathUtils#add(int, int)}.
 	 */
 	@Nested
+	@Tag(value="Math")
 	class AddTest{
 		@Test
 		@DisplayName("Test add method")
@@ -65,7 +67,37 @@ import org.junit.jupiter.api.TestInstance.Lifecycle;
 		}
 	}
 	
+	@Test
+	@Tag(value="Math")
+	@DisplayName("Test divide method")
+	void testDivide() {
+
+		assertThrows(ArithmeticException.class, () -> mathUtil.divide(2, 0),"Division By Zero should return ArithmeticException");
+		assertEquals(2,mathUtil.divide(10, 5),() -> "Division gave wrong value");
+	}
+	
+	@Test
+	@Tag(value="Math")
+	@DisplayName("TDD method. Don't run")
+	@Disabled
+	void tddMethod() {
+		fail("This is a Test Driven Development method.");
+	}
+	
+	@Test
+	@Tag(value="Math")
+	@DisplayName("Test multiply method")
+	void testMultiply() {
+		
+		assertAll("All tests for multiply",
+				() -> assertEquals(2, mathUtil.multiply(2, 1)),
+				() -> assertEquals(4, mathUtil.multiply(2, 2)),
+				() -> assertEquals(-6, mathUtil.multiply(2,-3))
+				);
+	}
+	
 	@RepeatedTest(value=3)
+	@Tag(value="Circle")
 	//@RepeatedTest(3)
 	@DisplayName("Test circleArea method")
 	void testComputeCircleArea(RepetitionInfo repetitionInfo) {
@@ -82,33 +114,6 @@ import org.junit.jupiter.api.TestInstance.Lifecycle;
 			assertEquals(3.141592653589793, mathUtil.computeCircleArea(1));
 			break;
 		default:
-		}
-				
-	}
-	
-	@Test
-	@DisplayName("Test divide method")
-	void testDivide() {
-
-		assertThrows(ArithmeticException.class, () -> mathUtil.divide(2, 0),"Division By Zero should return ArithmeticException");
-		assertEquals(2,mathUtil.divide(10, 5),() -> "Division gave wrong value");
-	}
-	
-	@Test
-	@DisplayName("TDD method. Don't run")
-	@Disabled
-	void tddMethod() {
-		fail("This is a Test Driven Development method.");
-	}
-	
-	@Test
-	@DisplayName("Test multiply method")
-	void testMultiply() {
-		
-		assertAll("All tests for multiply",
-				() -> assertEquals(2, mathUtil.multiply(2, 1)),
-				() -> assertEquals(4, mathUtil.multiply(2, 2)),
-				() -> assertEquals(-6, mathUtil.multiply(2,-3))
-				);
+		}	
 	}
 }
