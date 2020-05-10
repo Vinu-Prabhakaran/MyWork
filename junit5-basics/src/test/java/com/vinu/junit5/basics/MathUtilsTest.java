@@ -76,7 +76,7 @@ import org.junit.jupiter.api.TestInstance.Lifecycle;
 	void testDivide() {
 
 		assertThrows(ArithmeticException.class, () -> mathUtil.divide(2, 0),"Division By Zero should return ArithmeticException");
-		assertEquals(2,mathUtil.divide(10, 5),"Division gave wrong value");
+		assertEquals(2,mathUtil.divide(10, 5),() -> "Division gave wrong value");
 	}
 	
 	@Test
