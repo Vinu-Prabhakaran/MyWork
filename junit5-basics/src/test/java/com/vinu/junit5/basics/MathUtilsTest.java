@@ -10,6 +10,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Nested;
+import org.junit.jupiter.api.RepeatedTest;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
 import org.junit.jupiter.api.TestInstance.Lifecycle;
@@ -63,7 +64,8 @@ import org.junit.jupiter.api.TestInstance.Lifecycle;
 		}
 	}
 	
-	@Test
+	@RepeatedTest(value=3)
+	//@RepeatedTest(3)
 	@DisplayName("Test circleArea method")
 	void testComputeCircleArea() {
 		
