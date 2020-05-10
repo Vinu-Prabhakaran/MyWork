@@ -14,8 +14,10 @@ import org.junit.jupiter.api.RepeatedTest;
 import org.junit.jupiter.api.RepetitionInfo;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestInfo;
 import org.junit.jupiter.api.TestInstance;
 import org.junit.jupiter.api.TestInstance.Lifecycle;
+import org.junit.jupiter.api.TestReporter;
 
 /**
  * @author Vinu Prabhakaran
@@ -26,6 +28,8 @@ import org.junit.jupiter.api.TestInstance.Lifecycle;
  class MathUtilsTest {
 	 
 	MathUtils mathUtil;
+	/*TestInfo testInfo;
+	TestReporter testReporter;*/
 	
 	public MathUtilsTest() {
 		super();
@@ -37,9 +41,12 @@ import org.junit.jupiter.api.TestInstance.Lifecycle;
 		System.out.println("beforeAll ...");
 	}
 	@BeforeEach
-	void init(){
+	void init(TestInfo testInfo,TestReporter testReporter){
 		
+		/*this.testInfo=testInfo;
+		this.testReporter=testReporter;*/
 		mathUtil=new MathUtils();
+		testReporter.publishEntry("Report","Running "+testInfo.getDisplayName()+" with tag "+testInfo.getTags());
 	}
 	/**
 	 * Test method for {@link com.vinu.junit5.basics.MathUtils#add(int, int)}.
@@ -89,6 +96,8 @@ import org.junit.jupiter.api.TestInstance.Lifecycle;
 	@DisplayName("Test multiply method")
 	void testMultiply() {
 		
+		
+		//System.out.println("Running "+testInfo.getDisplayName()+" with tag "+testInfo.getTags());
 		assertAll("All tests for multiply",
 				() -> assertEquals(2, mathUtil.multiply(2, 1)),
 				() -> assertEquals(4, mathUtil.multiply(2, 2)),
