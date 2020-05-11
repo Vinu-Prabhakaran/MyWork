@@ -18,6 +18,8 @@ import org.junit.jupiter.api.TestInfo;
 import org.junit.jupiter.api.TestInstance;
 import org.junit.jupiter.api.TestInstance.Lifecycle;
 import org.junit.jupiter.api.TestReporter;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ValueSource;
 
 /**
  * @author Vinu Prabhakaran
@@ -103,6 +105,13 @@ import org.junit.jupiter.api.TestReporter;
 				() -> assertEquals(4, mathUtil.multiply(2, 2)),
 				() -> assertEquals(-6, mathUtil.multiply(2,-3))
 				);
+	}
+	
+	@ParameterizedTest
+	@ValueSource(ints = {0, 2, 4, 6, 8, 10, 100, 1000})
+	void testEven(int number) {
+		
+		assertTrue(mathUtil.isEven(number));
 	}
 	
 	@RepeatedTest(value=3)

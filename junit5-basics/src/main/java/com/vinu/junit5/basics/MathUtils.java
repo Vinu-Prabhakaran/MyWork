@@ -24,6 +24,11 @@ public class MathUtils {
 		
 		return a*b;
 	}
+	
+	public boolean isEven(int a) {
+		
+		return (a%2==0?true:false);
+	}
 	public double computeCircleArea(double radius) {
 		return Math.PI * radius * radius;
 	}
