@@ -4,7 +4,6 @@
 package com.vinu.mockito.business;
 
 import static org.junit.jupiter.api.Assertions.*;
-import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
 import java.util.Arrays;
@@ -13,6 +12,7 @@ import java.util.List;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
@@ -28,6 +28,9 @@ class ToDoBusinessImplTest {
 	
 	@Mock
 	ToDoService toDoMockService;
+	
+	@InjectMocks
+	ToDoBusinessImpl toDoBusinessImpl;
 	
 	@BeforeEach
 	public void setup() {
@@ -53,7 +56,7 @@ class ToDoBusinessImplTest {
 		//ToDoService toDoMockService = mock(ToDoService.class);
 		when(toDoMockService.retrieveToDos("Vinu")).thenReturn(Arrays.asList("Learn Spring MVC", "Learn Spring","Learn to Dance"));
 		when(toDoMockService.retrieveToDos("Dummy")).thenReturn(Arrays.asList());
-		ToDoBusinessImpl toDoBusinessImpl = new ToDoBusinessImpl(toDoMockService);
+		//ToDoBusinessImpl toDoBusinessImpl = new ToDoBusinessImpl(toDoMockService);
 		List<String> result = toDoBusinessImpl.retriveToDosRelatedToSpring("Vinu");
 		assertEquals(2, result.size());
 		assertEquals(0, toDoBusinessImpl.retriveToDosRelatedToSpring("Dummy").size());
