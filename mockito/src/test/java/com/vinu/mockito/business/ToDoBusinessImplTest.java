@@ -3,8 +3,11 @@
  */
 package com.vinu.mockito.business;
 
+import static org.hamcrest.CoreMatchers.is;
+import static org.junit.Assert.assertThat;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.when;
+import static org.mockito.BDDMockito.*;
 
 import java.util.Arrays;
 import java.util.List;
@@ -60,6 +63,19 @@ class ToDoBusinessImplTest {
 		List<String> result = toDoBusinessImpl.retriveToDosRelatedToSpring("Vinu");
 		assertEquals(2, result.size());
 		assertEquals(0, toDoBusinessImpl.retriveToDosRelatedToSpring("Dummy").size());
+		
+	}
+	
+	@Test
+	@DisplayName("Test using BDDmock")
+	void testRetriveToDosRelatedToSpringUsingBddMock() {
+		
+		//Given
+		given(toDoMockService.retrieveToDos("Vinu")).willReturn(Arrays.asList("Learn Spring MVC", "Learn Spring","Learn to Dance"));
+		//When
+		List<String> result = toDoBusinessImpl.retriveToDosRelatedToSpring("Vinu");
+		//Then
+		assertThat(result.size(),is(2));
 		
 	}
 
