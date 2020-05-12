@@ -31,8 +31,9 @@ class ListTest {
 	@Test
 	void testListSize() {
 		
-		when(mockList.size()).thenReturn(2);
+		when(mockList.size()).thenReturn(2).thenReturn(3);
 		assertEquals(2, mockList.size());
+		assertEquals(3, mockList.size());
 	}
 
 }
