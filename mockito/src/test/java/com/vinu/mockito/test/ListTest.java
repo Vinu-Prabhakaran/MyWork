@@ -7,6 +7,7 @@ import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
+import static org.mockito.BDDMockito.*;
 
 import java.util.List;
 
@@ -46,5 +47,17 @@ class ListTest {
 		when(mockList.get(anyInt())).thenReturn("Ramya");
 		assertThat(mockList.get(0).length(),is(5));
 	}
+	
+	@Test
+	void testGetMethodBdd() {
+		
+		//Given
+		given(mockList.get(anyInt())).willReturn("Ramya");
+		//When
+		String firstElement=mockList.get(0);
+		//Then
+		assertThat(firstElement, is("Ramya"));
+	}
+
 
 }
