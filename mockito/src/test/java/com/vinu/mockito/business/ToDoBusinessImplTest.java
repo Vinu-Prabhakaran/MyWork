@@ -10,13 +10,11 @@ import static org.mockito.Mockito.when;
 import java.util.Arrays;
 import java.util.List;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.extension.ExtendWith;
-import org.junit.platform.runner.JUnitPlatform;
-import org.junit.runner.RunWith;
 import org.mockito.Mock;
-import org.mockito.junit.jupiter.MockitoExtension;
+import org.mockito.MockitoAnnotations;
 
 import com.vinu.mockito.service.ToDoService;
 import com.vinu.mockito.service.ToDoServiceStub;
@@ -26,11 +24,15 @@ import com.vinu.mockito.service.ToDoServiceStub;
  *         on May 10, 2020
  *
  */
-@ExtendWith(MockitoExtension.class)
 class ToDoBusinessImplTest {
 	
 	@Mock
 	ToDoService toDoMockService;
+	
+	@BeforeEach
+	public void setup() {
+	    MockitoAnnotations.initMocks(this);
+	}
 	
 	@Test
 	@DisplayName("Test using stub")
