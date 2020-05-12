@@ -3,8 +3,10 @@
  */
 package com.vinu.mockito.test;
 
+import static org.hamcrest.CoreMatchers.is;
+import static org.junit.Assert.assertThat;
 import static org.junit.jupiter.api.Assertions.*;
-import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.*;
 
 import java.util.List;
 
@@ -34,6 +36,15 @@ class ListTest {
 		when(mockList.size()).thenReturn(2).thenReturn(3);
 		assertEquals(2, mockList.size());
 		assertEquals(3, mockList.size());
+	}
+	
+	@Test
+	void testGetMethod() {
+		
+		when(mockList.get(0)).thenReturn("Vinu");
+		assertThat(mockList.get(0).length(),is(4));
+		when(mockList.get(anyInt())).thenReturn("Ramya");
+		assertThat(mockList.get(0).length(),is(5));
 	}
 
 }
