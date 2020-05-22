@@ -17,6 +17,18 @@ public class HelloController {
 	@RequestMapping("/")
 	public String home() {
 		
-		return "TopicsApp";
+		return "Hello ...";
+	}
+	
+	@RequestMapping("/user")
+	public String user() {
+		
+		return "Hello User...";
+	}
+	
+	@RequestMapping("/admin")
+	public String admin() {
+		
+		return "Hello Admin...";
 	}
 }
