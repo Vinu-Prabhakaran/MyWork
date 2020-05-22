@@ -13,4 +13,10 @@ public class HelloController {
 		
 		return "Hello Vinu";
 	}
+	
+	@RequestMapping("/")
+	public String home() {
+		
+		return "TopicsApp";
+	}
 }
