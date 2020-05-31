@@ -10,7 +10,7 @@ import org.springframework.stereotype.Component;
  *         on Jun 10, 2019
  *
  */
-@Component
+//@Component
 public class Triangle {
 	
 	private String name;

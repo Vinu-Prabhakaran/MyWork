@@ -14,12 +14,12 @@ import com.vinu.spring.model.Triangle;
  *         on Jun 10, 2019
  *
  */
-@Service
+//@Service
 public class ShapeService {
 	
-	@Autowired
+	//@Autowired
 	private Circle circle;
-	@Autowired
+	//@Autowired
 	private Triangle triangle;
 	
 	public Circle getCircle() {
