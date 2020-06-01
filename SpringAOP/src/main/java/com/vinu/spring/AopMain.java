@@ -22,6 +22,7 @@ public class AopMain {
 		ApplicationContext cntxt=new ClassPathXmlApplicationContext("spring.xml");
 	    ShapeService shapeService=cntxt.getBean("shapeService", ShapeService.class);
 	    System.out.println(shapeService.getCircle().getName());
+	    System.out.println(shapeService.getTriangle().getName());
 
 	}
 

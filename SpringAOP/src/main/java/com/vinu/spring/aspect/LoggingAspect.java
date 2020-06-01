@@ -39,4 +39,10 @@ public class LoggingAspect {
 	public void getNamePointCut() {
 		
 	}
+	
+	@Before("execution(public * get*())")
+	public void LoggingAdviceWildCard() {
+		
+		System.out.println("Logging Advice configured with wildcard has run.");
+	}
 }
