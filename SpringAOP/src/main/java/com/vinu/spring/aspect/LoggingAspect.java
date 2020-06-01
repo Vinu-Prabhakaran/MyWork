@@ -39,6 +39,16 @@ public class LoggingAspect {
 	public void getNamePointCut() {
 		
 	}
+	//POint cut for all methods within Circle class.
+	@Pointcut("within(com.vinu.spring.model.Circle)")
+	public void allCircleMethods() {
+		
+	}
+	@Before("allCircleMethods()")
+	public void LoggingAdviceWithin() {
+		
+		System.out.println("Logging Advice for all methods in Circle.");
+	}
 	
 	@Before("execution(public * get*())")
 	public void LoggingAdviceWildCard() {
