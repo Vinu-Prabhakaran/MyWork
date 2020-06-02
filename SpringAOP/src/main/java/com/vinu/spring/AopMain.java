@@ -25,6 +25,7 @@ public class AopMain {
 	    System.out.println(shapeService.getTriangle().getName());
 	    shapeService.getSquare().setName("Square");
 	    shapeService.getSquare().setSides(4);
+	    shapeService.getSquare().setNameAndReturn("SquareAgain");
 
 	}
 

@@ -27,5 +27,9 @@ public class Square {
 	public void setSides(int sides) {
 		this.sides = sides;
 	}
-
+	
+	public String setNameAndReturn(String name) {
+		this.name = name;
+		return ("SquareName set");
+	}
 }

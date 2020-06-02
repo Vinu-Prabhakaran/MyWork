@@ -5,6 +5,7 @@ package com.vinu.spring.aspect;
 
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.After;
+import org.aspectj.lang.annotation.AfterReturning;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 import org.aspectj.lang.annotation.Pointcut;
@@ -69,4 +70,11 @@ public class LoggingAspect {
 		
 		System.out.println("Target Object :"+jP.getTarget()+" Target method :"+jP+" or "+jP.toShortString()+" or "+jP.toLongString());
 	}
+	
+	@AfterReturning(pointcut="args(name)",returning="returnObject")
+	public void anyStringArgStringReturnMethod(String name,String returnObject) {
+		
+		System.out.println("Method takes in arg "+name+" and returns "+returnObject);
+	}
+
 }
