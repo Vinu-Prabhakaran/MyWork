@@ -55,4 +55,11 @@ public class LoggingAspect {
 		
 		System.out.println("Logging Advice configured with wildcard has run.");
 	}
+	
+	@Before("args(name)")
+	public void LoggingAdviceForStringArg(String name) {
+		startTime=System.currentTimeMillis();
+		System.out.println("Advice has run for a method with String argument "+name);
+	}
+	
 }

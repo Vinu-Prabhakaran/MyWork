@@ -23,6 +23,8 @@ public class AopMain {
 	    ShapeService shapeService=cntxt.getBean("shapeService", ShapeService.class);
 	    System.out.println(shapeService.getCircle().getName());
 	    System.out.println(shapeService.getTriangle().getName());
+	    shapeService.getSquare().setName("Square");
+	    shapeService.getSquare().setSides(4);
 
 	}
 

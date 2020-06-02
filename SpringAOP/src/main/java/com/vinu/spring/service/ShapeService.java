@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.vinu.spring.model.Circle;
+import com.vinu.spring.model.Square;
 import com.vinu.spring.model.Triangle;
 
 /**
@@ -21,6 +22,8 @@ public class ShapeService {
 	private Circle circle;
 	//@Autowired
 	private Triangle triangle;
+	@Autowired
+	private Square square;
 	
 	public Circle getCircle() {
 		return circle;
@@ -34,7 +37,11 @@ public class ShapeService {
 	public void setTriangle(Triangle triangle) {
 		this.triangle = triangle;
 	}
+	public Square getSquare() {
+		return square;
+	}
+	public void setSquare(Square square) {
+		this.square = square;
+	}
 	
-	
-
 }
