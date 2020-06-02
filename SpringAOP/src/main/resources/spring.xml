@@ -19,4 +19,10 @@
 	<context:annotation-config/>
 	<bean id="loggingAspect" class="com.vinu.spring.aspect.LoggingAspect" autowire="byName" />
 	<aop:aspectj-autoproxy/>
+	<!-- <aop:config>
+		<aop:aspect id="logAspect" ref="logingAspect">
+			<aop:pointcut expression="execution(* get*())" id="allGetters"/>
+			<aop:around pointcut-ref="allGetters"  method="myAroundAdvice"/>
+		</aop:aspect>
+	</aop:config> -->
 </beans>
