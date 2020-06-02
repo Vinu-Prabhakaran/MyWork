@@ -77,21 +77,22 @@ public class LoggingAspect {
 		System.out.println("Method takes in arg "+name+" and returns "+returnObject);
 	}
 	
-	@Around("getNamePointCut()")
+	//@Around("getNamePointCut()")
+	@Around("@annotation(com.vinu.spring.annotation.Loggable)")
 	public Object LoggingTime(ProceedingJoinPoint proceedingJoinPoint) {
 		Long startTime = null;
 		Object returnValue=null;
 		
 		try {
-			System.out.println("@Around Before");
+			System.out.println("@Around Before "+proceedingJoinPoint.getSignature());
 			startTime=System.currentTimeMillis();
 			returnValue = proceedingJoinPoint.proceed();
-			System.out.println("@Around AfterReturning");
+			System.out.println("@Around AfterReturning"+proceedingJoinPoint.getSignature());
 		} catch (Throwable e) {
 			System.out.println("@Around AfterThrowing");
 		}
 		System.out.println("@Around Finally");
-		System.out.println("ExecutionTime is "+(System.currentTimeMillis() - startTime));
+		System.out.println("ExecutionTime for "+proceedingJoinPoint.getSignature()+" is "+(System.currentTimeMillis() - startTime));
 		return returnValue;
 	}
 

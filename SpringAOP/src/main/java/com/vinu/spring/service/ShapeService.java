@@ -6,6 +6,7 @@ package com.vinu.spring.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.vinu.spring.annotation.Loggable;
 import com.vinu.spring.model.Circle;
 import com.vinu.spring.model.Square;
 import com.vinu.spring.model.Triangle;
@@ -25,6 +26,7 @@ public class ShapeService {
 	@Autowired
 	private Square square;
 	
+	@Loggable
 	public Circle getCircle() {
 		return circle;
 	}
