@@ -3,6 +3,7 @@
  */
 package com.vinu.spring.aspect;
 
+import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.After;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
@@ -62,4 +63,10 @@ public class LoggingAspect {
 		System.out.println("Advice has run for a method with String argument "+name);
 	}
 	
+	//Advice for any setter
+	@Before("execution( * set*(..))")
+	public void anySetter(JoinPoint jP) {
+		
+		System.out.println("Target Object :"+jP.getTarget()+" Target method :"+jP+" or "+jP.toShortString()+" or "+jP.toLongString());
+	}
 }
