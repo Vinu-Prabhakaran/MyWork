@@ -4,8 +4,10 @@
 package com.vinu.spring.aspect;
 
 import org.aspectj.lang.JoinPoint;
+import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.After;
 import org.aspectj.lang.annotation.AfterReturning;
+import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 import org.aspectj.lang.annotation.Pointcut;
@@ -26,15 +28,13 @@ public class LoggingAspect {
 	//@Before("execution(public String getName())")
 	@Before("getNamePointCut()")
 	public void LoggingAdvice() {
-		startTime=System.currentTimeMillis();
 		System.out.println("Logging Advice has run. Get method for name executed");
 	}
 	
 	//@After("execution(public String getName())")
 	@After("getNamePointCut()")
-	public void LoggingTime() {
-		endTime=System.currentTimeMillis();
-		System.out.println("Time taken :"+ (endTime-startTime)+"ms");
+	public void afterAdvice() {
+		System.out.println("Advice after getName");
 	}
 	
 	@Pointcut("execution(public String getName())")
@@ -75,6 +75,24 @@ public class LoggingAspect {
 	public void anyStringArgStringReturnMethod(String name,String returnObject) {
 		
 		System.out.println("Method takes in arg "+name+" and returns "+returnObject);
+	}
+	
+	@Around("getNamePointCut()")
+	public Object LoggingTime(ProceedingJoinPoint proceedingJoinPoint) {
+		Long startTime = null;
+		Object returnValue=null;
+		
+		try {
+			System.out.println("@Around Before");
+			startTime=System.currentTimeMillis();
+			returnValue = proceedingJoinPoint.proceed();
+			System.out.println("@Around AfterReturning");
+		} catch (Throwable e) {
+			System.out.println("@Around AfterThrowing");
+		}
+		System.out.println("@Around Finally");
+		System.out.println("ExecutionTime is "+(System.currentTimeMillis() - startTime));
+		return returnValue;
 	}
 
 }
