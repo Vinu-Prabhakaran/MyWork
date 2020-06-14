@@ -19,8 +19,10 @@ public class JdbcDemo {
 	
 	public static void main(String ...args) {
 		ApplicationContext cntxt=new ClassPathXmlApplicationContext("spring.xml");
-		Student s=cntxt.getBean("jdbcDaoSpringImpl", JdbcDaoSpringImpl.class).getStudent(2345);
+		JdbcDaoSpringImpl jdbcDaoSpringImpl=cntxt.getBean("jdbcDaoSpringImpl", JdbcDaoSpringImpl.class);
+		Student s=jdbcDaoSpringImpl.getStudent(2345);
 		//Student s=new JdbcDaoImpl().getStudent(2345);
 		System.out.println(s);
+		System.out.println("Student Count :"+jdbcDaoSpringImpl.getStudentCount());
 	}
 }
