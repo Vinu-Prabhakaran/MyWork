@@ -35,5 +35,9 @@ public class JdbcDemo {
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		}
+		
+		//Lets Try Update 
+		System.out.println(jdbcDaoSpringImpl.insertStudent(new Student(1234, "vinu.cp@gmail.com", "Vinu Prabhakaran", 100))?
+				"Inserted Student":"Failed Insert");
 	}
 }

@@ -66,6 +66,20 @@ public class JdbcDaoSpringImpl {
 		return jdbcTemplate.query(query, new StudentMapper());
 	}
 	
+	//Insert Student
+	public Boolean insertStudent(Student student) {
+		
+		String query = "INSERT INTO student values (?,?,?,?)";
+		try {
+			jdbcTemplate.update(query, 
+					new Object[] {student.getStudId(), student.getStudEmail(),student.getStudName(),student.getStudDeptDepId()});
+			return true;
+		}catch (Exception e) {
+			System.out.println(e.getMessage());
+			return false;
+		}
+	}
+	
 	@Autowired
 	public void setDataSource(DataSource dataSource) {
 		System.out.println("Setting datasource");
