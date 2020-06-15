@@ -24,5 +24,6 @@ public class JdbcDemo {
 		//Student s=new JdbcDaoImpl().getStudent(2345);
 		System.out.println(s);
 		System.out.println("Student Count :"+jdbcDaoSpringImpl.getStudentCount());
+		System.out.println("Student Name for 3456 is "+jdbcDaoSpringImpl.getStudentName(3456));
 	}
 }

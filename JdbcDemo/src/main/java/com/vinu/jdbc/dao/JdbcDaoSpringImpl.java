@@ -58,6 +58,12 @@ public class JdbcDaoSpringImpl {
 		return jdbcTemplate.queryForInt(query);
 	}
 	
+	public String getStudentName(Integer studId) {
+		
+		String query="SELECT studname FROM student where studid = ?";
+		return jdbcTemplate.queryForObject(query,new Object[] {studId}, String.class);
+	}
+	
 	public DataSource getDataSource() {
 		return dataSource;
 	} 
