@@ -26,9 +26,9 @@ import com.vinu.jdbc.model.Student;
 @Component
 public class JdbcDaoSpringImpl {
 	
-	@Autowired
+	//@Autowired
 	DataSource dataSource;
-	private JdbcTemplate jdbcTemplate = new JdbcTemplate();
+	private JdbcTemplate jdbcTemplate;
 
 	public Student getStudent(Integer studId) {
 		Connection con=null;
@@ -54,16 +54,18 @@ public class JdbcDaoSpringImpl {
 	public int getStudentCount() {
 		
 		String query="SELECT count(*) FROM student";
-		jdbcTemplate.setDataSource(dataSource); 
+		//jdbcTemplate.setDataSource(dataSource); 
 		return jdbcTemplate.queryForInt(query);
 	}
-
+	
 	public DataSource getDataSource() {
 		return dataSource;
 	} 
-
+	
+	@Autowired
 	public void setDataSource(DataSource dataSource) {
 		System.out.println("Setting datasource");
+		this.jdbcTemplate = new JdbcTemplate(dataSource);
 		this.dataSource = dataSource;
 	}
 	
