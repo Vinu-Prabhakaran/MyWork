@@ -8,6 +8,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.List;
 
 import javax.sql.DataSource;
 
@@ -84,6 +85,13 @@ public class JdbcDaoSpringImpl {
 			return student;
 		}
 		
+	}
+	
+	//getAllStudent rows
+	public List<Student> getAllStudents() {
+
+		String query="SELECT * FROM student";
+		return jdbcTemplate.query(query, new StudentMapper());
 	}
 	
 	public DataSource getDataSource() {
