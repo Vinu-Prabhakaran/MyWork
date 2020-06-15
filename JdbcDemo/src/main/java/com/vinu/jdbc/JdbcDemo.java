@@ -11,6 +11,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 import com.vinu.jdbc.dao.JdbcDaoImpl;
 import com.vinu.jdbc.dao.JdbcDaoSpringImpl;
 import com.vinu.jdbc.dao.JdbcDaoSpringImplOld;
+import com.vinu.jdbc.dao.SimpleJdbcDaoImpl;
 import com.vinu.jdbc.model.Student;
 
 /**
@@ -24,6 +25,7 @@ public class JdbcDemo {
 		ApplicationContext cntxt=new ClassPathXmlApplicationContext("spring.xml");
 		JdbcDaoSpringImpl jdbcDaoSpringImpl=cntxt.getBean("jdbcDaoSpringImpl", JdbcDaoSpringImpl.class);
 		JdbcDaoSpringImplOld jdbcDaoSpringImplOld=cntxt.getBean("jdbcDaoSpringImplOld", JdbcDaoSpringImplOld.class);
+		SimpleJdbcDaoImpl simpleJdbcDaoImpl=cntxt.getBean("simpleJdbcDaoImpl", SimpleJdbcDaoImpl.class);
 		Student s=jdbcDaoSpringImplOld.getStudent(2345);
 		//Student s=new JdbcDaoImpl().getStudent(2345);
 		System.out.println(s);
@@ -39,5 +41,7 @@ public class JdbcDemo {
 		//Lets Try Update 
 		System.out.println(jdbcDaoSpringImpl.insertStudent(new Student(1234, "vinu.cp@gmail.com", "Vinu Prabhakaran", 100))?
 				"Inserted Student":"Failed Insert");
+		//Using DaoSupport Class
+		System.out.println(simpleJdbcDaoImpl.getStudentNameForId(1234));
 	}
 }

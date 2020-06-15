@@ -18,4 +18,8 @@
 		<property name="initialSize" value="2"></property>
 		<property name="maxActive" value="5"></property>
 	</bean>
+	
+	<bean name="simpleJdbcDaoImpl" class="com.vinu.jdbc.dao.SimpleJdbcDaoImpl">
+		<property name="dataSource" ref="dataSource"></property>
+	</bean>
 </beans>
