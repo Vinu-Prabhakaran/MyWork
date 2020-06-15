@@ -3,6 +3,8 @@
  */
 package com.vinu.jdbc;
 
+import java.sql.SQLException;
+
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
@@ -23,7 +25,12 @@ public class JdbcDemo {
 		Student s=jdbcDaoSpringImpl.getStudent(2345);
 		//Student s=new JdbcDaoImpl().getStudent(2345);
 		System.out.println(s);
-		System.out.println("Student Count :"+jdbcDaoSpringImpl.getStudentCount());
-		System.out.println("Student Name for 3456 is "+jdbcDaoSpringImpl.getStudentName(3456));
+		try {
+			System.out.println("Student Count :"+jdbcDaoSpringImpl.getStudentCount());
+			System.out.println("Student Name for 3456 is "+jdbcDaoSpringImpl.getStudentName(3456));
+			System.out.println("Student Record for 4567 is "+jdbcDaoSpringImpl.getStudentForId(4567));
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
 	}
 }

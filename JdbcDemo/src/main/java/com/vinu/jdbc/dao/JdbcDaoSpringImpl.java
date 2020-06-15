@@ -14,6 +14,7 @@ import javax.sql.DataSource;
 import org.postgresql.Driver;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Component;
 
 import com.vinu.jdbc.model.Student;
@@ -62,6 +63,27 @@ public class JdbcDaoSpringImpl {
 		
 		String query="SELECT studname FROM student where studid = ?";
 		return jdbcTemplate.queryForObject(query,new Object[] {studId}, String.class);
+	}
+	
+	public Student getStudentForId(Integer studId) {
+
+		String query="SELECT * FROM student where studid = ?";
+		return jdbcTemplate.queryForObject(query, new Object[] {studId}, new StudentMapper());
+	}
+	
+	//Inner class for RowMapper implementation
+	public static final class StudentMapper implements RowMapper<Student>{
+
+		@Override
+		public Student mapRow(ResultSet rs, int rowNum) throws SQLException {
+			Student student=new Student();
+			student.setStudId(rs.getInt("studid"));
+			student.setStudEmail(rs.getString("studemail"));
+			student.setStudName(rs.getString("studname"));
+			student.setStudDeptDepId(rs.getInt("studdept_depid"));
+			return student;
+		}
+		
 	}
 	
 	public DataSource getDataSource() {
