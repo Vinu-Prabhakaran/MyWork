@@ -8,6 +8,7 @@ import java.sql.SQLException;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
+import com.vinu.jdbc.dao.HibernateDaoImpl;
 import com.vinu.jdbc.dao.JdbcDaoImpl;
 import com.vinu.jdbc.dao.JdbcDaoSpringImpl;
 import com.vinu.jdbc.dao.JdbcDaoSpringImplOld;
@@ -26,6 +27,7 @@ public class JdbcDemo {
 		JdbcDaoSpringImpl jdbcDaoSpringImpl=cntxt.getBean("jdbcDaoSpringImpl", JdbcDaoSpringImpl.class);
 		JdbcDaoSpringImplOld jdbcDaoSpringImplOld=cntxt.getBean("jdbcDaoSpringImplOld", JdbcDaoSpringImplOld.class);
 		SimpleJdbcDaoImpl simpleJdbcDaoImpl=cntxt.getBean("simpleJdbcDaoImpl", SimpleJdbcDaoImpl.class);
+		HibernateDaoImpl hibernateDaoImpl=cntxt.getBean("hibernateDaoImpl",HibernateDaoImpl.class);
 		Student s=jdbcDaoSpringImplOld.getStudent(2345);
 		//Student s=new JdbcDaoImpl().getStudent(2345);
 		System.out.println(s);
@@ -42,6 +44,8 @@ public class JdbcDemo {
 		System.out.println(jdbcDaoSpringImpl.insertStudent(new Student(1234, "vinu.cp@gmail.com", "Vinu Prabhakaran", 100))?
 				"Inserted Student":"Failed Insert");
 		//Using DaoSupport Class
-		System.out.println(simpleJdbcDaoImpl.getStudentNameForId(1234));
+		System.out.println("Using SimpleJdbcDaoSupport :"+simpleJdbcDaoImpl.getStudentNameForId(1234));
+		//Using HibernateDaoImpl
+		System.out.println("Student 1234 using Hibernate "+hibernateDaoImpl.getStudentDetails(1234));
 	}
 }

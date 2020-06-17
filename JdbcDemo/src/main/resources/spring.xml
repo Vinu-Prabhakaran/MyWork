@@ -22,4 +22,16 @@
 	<bean name="simpleJdbcDaoImpl" class="com.vinu.jdbc.dao.SimpleJdbcDaoImpl">
 		<property name="dataSource" ref="dataSource"></property>
 	</bean>
+	
+	<bean id="sessionFactory" class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
+		<property name="dataSource" ref="dataSource"></property>
+		<property name="packagesToScan" value="com.vinu.jdbc.model"></property>
+		<property name="hibernateProperties">
+			<props>
+				<prop key="dialect">org.hibernate.dialect.PostgreSQLDialect</prop>
+				<prop key="hibernate.show_sql">true</prop>
+			</props>
+		</property>
+	
+	</bean>
 </beans>

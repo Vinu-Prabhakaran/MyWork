@@ -25,6 +25,12 @@
 		<artifactId>spring-context</artifactId>
 		<version>${spring-framework.version}</version>
 	</dependency>
+	<!-- https://mvnrepository.com/artifact/org.springframework/spring-orm -->
+	<dependency>
+	    <groupId>org.springframework</groupId>
+	    <artifactId>spring-orm</artifactId>
+	    <version>${spring-framework.version}</version>
+	</dependency>
   	<!-- https://mvnrepository.com/artifact/org.postgresql/postgresql -->
 	<dependency>
   	  <groupId>org.postgresql</groupId>
@@ -41,7 +47,7 @@
 	<dependency>
 	    <groupId>org.hibernate</groupId>
 	    <artifactId>hibernate-core</artifactId>
-	    <version>5.4.10.Final</version>
+	    <version>4.3.6.Final</version>
 	</dependency>
 	<!-- https://mvnrepository.com/artifact/org.projectlombok/lombok -->
 	<dependency>
