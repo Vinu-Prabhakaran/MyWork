@@ -30,4 +30,14 @@ public class Message {
 	private String message;
 	private LocalDateTime created;
 	private String author;
+	
+	public Message(Long id, String message, String author) {
+		super();
+		this.id = id;
+		this.message = message;
+		this.author = author;
+		this.created = LocalDateTime.now();
+	}
+	
+	
 }
