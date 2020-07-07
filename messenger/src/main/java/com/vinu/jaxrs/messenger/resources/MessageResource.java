@@ -37,7 +37,7 @@ public class MessageResource {
 	}
 	
 	@GET
-	@Produces(MediaType.APPLICATION_XML)
+	@Produces(MediaType.APPLICATION_JSON)
 	public List<Message> getMessages() {
 		
 		return messageService.getMessages();
@@ -45,15 +45,15 @@ public class MessageResource {
 	
 	@GET
 	@Path("/{messageId}")
-	@Produces(MediaType.APPLICATION_XML)
+	@Produces(MediaType.APPLICATION_JSON)
 	public Message getMessage(@PathParam("messageId") String messageId) {
 		
 		return messageService.getMessage(new Long(messageId));
 	}
 	
 	@POST
-	@Consumes(MediaType.APPLICATION_XML)
-	@Produces(MediaType.APPLICATION_XML)
+	@Consumes(MediaType.APPLICATION_JSON)
+	@Produces(MediaType.APPLICATION_JSON)
 	public Message addMessage(Message message) {
 		
 		return messageService.addMessage(message);
@@ -68,8 +68,8 @@ public class MessageResource {
 	
 	@PUT
 	@Path("/{messageId}")
-	@Consumes(MediaType.APPLICATION_XML)
-	@Produces(MediaType.APPLICATION_XML)
+	@Consumes(MediaType.APPLICATION_JSON)
+	@Produces(MediaType.APPLICATION_JSON)
 	public Message updateMessage(Message message,@PathParam("messageId") String messageId) {
 		
 		message.setId(new Long(messageId));
