@@ -29,12 +29,7 @@ import com.vinu.jaxrs.messenger.service.MessageService;
 @Singleton
 public class MessageResource {
 	
-	private MessageService messageService;
-	
-	public MessageResource() {
-		
-		messageService = new MessageService();
-	}
+	private MessageService messageService = new MessageService();
 	
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
