@@ -4,6 +4,7 @@
 package com.vinu.jaxrs.messenger.service;
 
 import java.time.LocalDateTime;
+import java.time.Month;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -25,6 +26,8 @@ public class MessageService {
 
 		messages.add(new Message(1L,"Hello1","Vinu"));
 		messages.add(new Message(2L,"Hello2","Ramya"));
+		messages.add(new Message(1L,"Hello2",LocalDateTime.of(2018, Month.APRIL, 11,10,11),"Vinu"));
+		messages.add(new Message(1L,"Hello3",LocalDateTime.of(2018, Month.JUNE, 11,10,11),"Vinu"));
 	}
 	
 	public List<Message> getMessages(){
@@ -75,5 +78,18 @@ public class MessageService {
 		} else {
 			return false;
 		}		
+	}
+	
+	
+	public List<Message> getMessagesByYear(Integer year){
+		
+		return messages.stream()
+					   .filter(m -> m.getCreated().getYear() == year)
+					   .collect(Collectors.toList());
+	}
+	
+	public List<Message> getMessagesPaginated(Integer start,Integer size){
+		
+		return start+size > messages.size() ? new ArrayList<Message>():messages.subList(start, start+size);
 	}
 }

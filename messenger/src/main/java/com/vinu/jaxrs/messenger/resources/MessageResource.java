@@ -4,6 +4,7 @@
 package com.vinu.jaxrs.messenger.resources;
 
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.inject.Singleton;
@@ -15,6 +16,7 @@ import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
+import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
 
 import com.vinu.jaxrs.messenger.model.Message;
@@ -33,9 +35,21 @@ public class MessageResource {
 	
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
-	public List<Message> getMessages() {
+	public List<Message> getMessages(@QueryParam("year") Integer year,
+									 @QueryParam("start") Integer start,
+									 @QueryParam("size") Integer size) {
 		
-		return messageService.getMessages();
+		if (year == null && start == null && size == null) {
+			return messageService.getMessages();
+		}
+		else if(year != null && start == null && size == null){
+			return messageService.getMessagesByYear(year);
+		}
+		else if(year == null && start != null && size != null){
+			return messageService.getMessagesPaginated(start, size);
+		}else {
+			return new ArrayList<Message>();
+		}
 	}
 	
 	@GET
