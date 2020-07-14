@@ -84,4 +84,11 @@ public class MessageResource {
 		message.setId(new Long(messageId));
 		return messageService.updateMessage(message);
 	}
+	
+	
+	@Path("/{messageId}/comments")
+	public CommentResource getCommentResource() {
+		
+		return new CommentResource();
+	}
 }
