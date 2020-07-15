@@ -9,6 +9,7 @@ import java.util.stream.Collectors;
 
 import javax.ws.rs.NotFoundException;
 
+import com.vinu.jaxrs.messenger.exceptions.DataNotFoundException;
 import com.vinu.jaxrs.messenger.model.Comment;
 
 /**
@@ -58,7 +59,7 @@ public class CommentService {
 			return comment;
 						
 		} else {
-			return null;
+			throw new DataNotFoundException("Matching Comment not found");
 		}
 	}
 	
@@ -70,7 +71,7 @@ public class CommentService {
 				   .filter(c -> c.getId().equals(id)).collect(Collectors.toList()));
 						
 		} else {
-			return false;
+			throw new DataNotFoundException("Matching Comment not found");
 		}		
 	}
 	
