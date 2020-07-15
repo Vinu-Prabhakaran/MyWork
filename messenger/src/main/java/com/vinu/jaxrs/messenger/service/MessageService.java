@@ -10,8 +10,8 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import javax.inject.Singleton;
-import javax.ws.rs.NotFoundException;
 
+import com.vinu.jaxrs.messenger.exceptions.DataNotFoundException;
 import com.vinu.jaxrs.messenger.model.Comment;
 import com.vinu.jaxrs.messenger.model.Message;
 
@@ -44,7 +44,7 @@ public class MessageService {
 				   .stream()
 				   .filter(m -> m.getId().equals(id))
 				   .findFirst()
-				   .orElseThrow(() -> new NotFoundException());
+				   .orElseThrow(() -> new DataNotFoundException("Message with id "+id+" not found"));
 	}
 	
 	public Message addMessage(Message message) {
