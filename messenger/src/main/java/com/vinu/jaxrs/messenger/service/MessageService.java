@@ -12,7 +12,6 @@ import java.util.stream.Collectors;
 import javax.inject.Singleton;
 
 import com.vinu.jaxrs.messenger.exceptions.DataNotFoundException;
-import com.vinu.jaxrs.messenger.model.Comment;
 import com.vinu.jaxrs.messenger.model.Message;
 
 /**
@@ -27,10 +26,10 @@ public class MessageService {
 	
 	public MessageService() {
 
-		messages.add(new Message(1L,"Hello1","Vinu"));
-		messages.add(new Message(2L,"Hello2","Ramya"));
-		messages.add(new Message(3L,"Hello2",LocalDateTime.of(2018, Month.APRIL, 11,10,11),"Vinu"));
-		messages.add(new Message(4L,"Hello3",LocalDateTime.of(2018, Month.JUNE, 11,10,11),"Vinu"));
+		messages.add(new Message(1L,"Hello1","vprabha"));
+		messages.add(new Message(2L,"Hello2","rvinu"));
+		messages.add(new Message(3L,"Hello2",LocalDateTime.of(2018, Month.APRIL, 11,10,11),"vprabha"));
+		messages.add(new Message(4L,"Hello3",LocalDateTime.of(2018, Month.JUNE, 11,10,11),"vprabha"));
 	}
 	
 	public List<Message> getMessages(){

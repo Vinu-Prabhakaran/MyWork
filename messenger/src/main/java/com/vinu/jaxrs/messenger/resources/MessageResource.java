@@ -4,7 +4,6 @@
 package com.vinu.jaxrs.messenger.resources;
 
 
-import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.ArrayList;
 import java.util.List;
@@ -64,6 +63,8 @@ public class MessageResource {
 		
 		Message message= messageService.getMessage(new Long(messageId));
 		message.addLink(getUrlToSelf(uriInfo,message), "self");
+		message.addLink(getUrlToProfile(uriInfo,message), "profile");
+		message.addLink(getUrlToComments(uriInfo,message), "profile");
 		return message;
 	}
 
@@ -109,6 +110,25 @@ public class MessageResource {
 		return uriInfo.getBaseUriBuilder()
 				.path(MessageResource.class)
 				.path(Long.toString(message.getId()))
+				.build()
+				.toString();
+	}
+	
+	private String getUrlToProfile(UriInfo uriInfo, Message message) {
+
+		return uriInfo.getBaseUriBuilder()
+				.path(ProfileResource.class)
+				.path(message.getAuthor())
+				.build()
+				.toString();
+	}
+	
+	private String getUrlToComments(UriInfo uriInfo, Message message) {
+
+		return uriInfo.getBaseUriBuilder()
+				.path(MessageResource.class)
+				.path(MessageResource.class, "getCommentResource")
+				.resolveTemplate("messageId", message.getId())
 				.build()
 				.toString();
 	}
