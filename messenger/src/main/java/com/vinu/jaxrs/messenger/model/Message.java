@@ -5,7 +5,6 @@ package com.vinu.jaxrs.messenger.model;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 import javax.xml.bind.annotation.XmlRootElement;
@@ -34,7 +33,8 @@ public class Message {
 	private String message;
 	private LocalDateTime created;
 	private String author;
-	private List<Comment> comments;
+	private List<Comment> comments = new ArrayList<>();
+	private List<Link> links = new ArrayList<>();
 	
 	public Message(Long id, String message, String author) {
 		super();
@@ -42,6 +42,15 @@ public class Message {
 		this.message = message;
 		this.author = author;
 		this.created = LocalDateTime.now();
+		this.comments = new ArrayList<Comment>();
+	}
+	
+	public Message(Long id, String message, LocalDateTime localDateTime, String author) {
+		super();
+		this.id = id;
+		this.message = message;
+		this.author = author;
+		this.created = localDateTime;
 		this.comments = new ArrayList<Comment>();
 	}
 
@@ -65,6 +74,14 @@ public class Message {
 		return comments;
 	}
 	
+	public void addLink(String uri,String ref) {
+		
+		this.links.add(new Link(uri,ref));
+	}
+
+	public List<Link> getLinks() {
+		return links;
+	}
 	
 	
 }

@@ -60,11 +60,13 @@ public class MessageResource {
 	@GET
 	@Path("/{messageId}")
 	@Produces(MediaType.APPLICATION_JSON)
-	public Message getMessage(@PathParam("messageId") String messageId) {
+	public Message getMessage(@Context UriInfo uriInfo,@PathParam("messageId") String messageId) {
 		
-		return messageService.getMessage(new Long(messageId));
+		Message message= messageService.getMessage(new Long(messageId));
+		message.addLink(getUrlToSelf(uriInfo,message), "self");
+		return message;
 	}
-	
+
 	@POST
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.APPLICATION_JSON)
@@ -99,5 +101,15 @@ public class MessageResource {
 	public CommentResource getCommentResource() {
 		
 		return new CommentResource();
+	}
+	
+	
+	private String getUrlToSelf(UriInfo uriInfo, Message message) {
+
+		return uriInfo.getBaseUriBuilder()
+				.path(MessageResource.class)
+				.path(Long.toString(message.getId()))
+				.build()
+				.toString();
 	}
 }
