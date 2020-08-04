@@ -3,6 +3,7 @@
  */
 package com.vinu.jaxrs.advanced;
 
+import javax.inject.Singleton;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
@@ -14,12 +15,13 @@ import javax.ws.rs.core.MediaType;
  *
  */
 @Path("/welcome")
+@Singleton
 public class MyWelcomeResource {
 	
-	
+	private int count;
 	@GET
 	@Produces(MediaType.TEXT_PLAIN)
 	public String myHelloMessage() {
-		return "Hello...this works!!!";
+		return "Hello...this works!!!Attempt#"+ ++count;
 	}
 }
