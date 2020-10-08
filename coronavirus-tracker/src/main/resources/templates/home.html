@@ -19,8 +19,9 @@
 		    <p class="lead">Cases added since last day.</p>
 		  </div>
 		</div>
-	    <p th:text="${test}">Welcome to CoronaVirus!</p>
-
+	    <p th:text="${test}">Welcome to CoronaVirusTracker!</p>
+		
+		<a th:href="@{/export/pdf}">Export to PDF</a>
 	    <table class="table table-hover table-bordered">
 	    	<thead class="thead-dark">
 		      <tr>
