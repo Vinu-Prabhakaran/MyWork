@@ -64,7 +64,7 @@ public class MessageResource {
 		Message message= messageService.getMessage(new Long(messageId));
 		message.addLink(getUrlToSelf(uriInfo,message), "self");
 		message.addLink(getUrlToProfile(uriInfo,message), "profile");
-		message.addLink(getUrlToComments(uriInfo,message), "profile");
+		message.addLink(getUrlToComments(uriInfo,message), "comment");
 		return message;
 	}
 
