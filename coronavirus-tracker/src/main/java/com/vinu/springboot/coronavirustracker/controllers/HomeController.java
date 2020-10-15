@@ -20,6 +20,7 @@ import com.lowagie.text.DocumentException;
 import com.vinu.springboot.coronavirustracker.models.LocationStats;
 import com.vinu.springboot.coronavirustracker.pdf.LocationStatsPdfExporter;
 import com.vinu.springboot.coronavirustracker.services.CoronaVirusDataService;
+import com.vinu.springboot.coronavirustracker.xls.LocationStatsExcelExporter;
 
 /**
  * @author Vinu Prabhakaran
@@ -57,6 +58,23 @@ public class HomeController {
         List<LocationStats> allStats = coronaVirusDataService.getAllStats();
          
         LocationStatsPdfExporter exporter = new LocationStatsPdfExporter(allStats);
+        exporter.export(response);
+         
+    }
+	
+	@GetMapping("/export/xls")
+	public void exportToExcel(HttpServletResponse response) throws DocumentException, IOException {
+        response.setContentType("application/octet-stream");
+        DateFormat dateFormatter = new SimpleDateFormat("yyyy-MM-dd_HH:mm:ss");
+        String currentDateTime = dateFormatter.format(new Date());
+         
+        String headerKey = "Content-Disposition";
+        String headerValue = "attachment; filename=CoronaVirusLocationStats_" + currentDateTime + ".xlsx";
+        response.setHeader(headerKey, headerValue);
+         
+        List<LocationStats> allStats = coronaVirusDataService.getAllStats();
+         
+        LocationStatsExcelExporter exporter = new LocationStatsExcelExporter(allStats);
         exporter.export(response);
          
     }

@@ -21,7 +21,8 @@
 		</div>
 	    <p th:text="${test}">Welcome to CoronaVirusTracker!</p>
 		
-		<a th:href="@{/export/pdf}">Export to PDF</a>
+		<a th:href="@{/export/xls}" style="float:right"><img th:src="@{/images/xls.png}" style="width:40px"/></a>
+		<a th:href="@{/export/pdf}" style="float:right"><img th:src="@{/images/pdf.jpg}" style="width:40px;margin-right:10px"/></a>
 	    <table class="table table-hover table-bordered">
 	    	<thead class="thead-dark">
 		      <tr>
