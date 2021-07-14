@@ -52,6 +52,8 @@ public class MapInterface {
 		System.out.println(tm.put("Giraffe","Leaf"));	//returns earlier value for the key
 		System.out.println(tm);
 		System.out.println("Map size is "+tm.size());
+		System.out.println("TreeSet Keys :"+tm.keySet());
+		System.out.println("TreeSet Values :"+tm.values());
 
 	}
 

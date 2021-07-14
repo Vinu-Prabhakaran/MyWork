@@ -19,6 +19,9 @@ public class TestAnonInner {
 				return("Hello Vinu");
 			}
 		});
+		
+		//Now lets do it using lambda
+		new TestAnonInner().dispMessage(() -> "Hello Vinu Lambda");
 	}
 	
 }

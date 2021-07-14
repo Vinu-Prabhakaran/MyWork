@@ -17,6 +17,11 @@ public class UnboundedGeneric {
 		list.add("Ramya");
 		
 		print(list);
+		
+		List<Integer> intList=new ArrayList<>();
+		intList.add(1);
+		intList.add(5);
+		print(intList);
 
 	}
 

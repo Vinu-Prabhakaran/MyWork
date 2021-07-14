@@ -17,6 +17,12 @@ public class UpperBoundedGeneric {
 		list.add(234);			// this is autoboxed
 		
 		print(list);
+		
+		List<Float> floatList = new ArrayList<>();
+		floatList.add(new Float(123));
+		floatList.add(234.0f);			// this is autoboxed
+		
+		print(list);
 
 	}
 
