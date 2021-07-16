@@ -32,6 +32,19 @@ public class UsingOptional {
 			System.out.println("Average is "+opt.get());
 		}
 		
+		
+		//System.out.println("Enter something");
+		//String s=inp.nextLine();
+		String s = null;
+		Optional<String> o1= Optional.ofNullable(s);
+		//System.out.println(o1.orElseThrow(IllegalArgumentException::new));
+		System.out.println(o1.orElseGet(() -> "What is this?"));
+		System.out.println(o1.orElse("Something Else"));
+		String s2 = "Input Value";
+		Optional<String> o2= Optional.ofNullable(s2);
+		System.out.println(o2.orElseThrow(IllegalArgumentException::new));
+		System.out.println(o2.orElseGet(() -> "What is this?"));
+		System.out.println(o2.orElse("Something Else"));
 		inp.close();
 	}
 

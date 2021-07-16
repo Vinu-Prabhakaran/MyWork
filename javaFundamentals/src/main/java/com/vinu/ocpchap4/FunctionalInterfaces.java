@@ -29,6 +29,8 @@ public class FunctionalInterfaces {
 		//******* Consumer
 		Consumer<String> c1 = (s) -> System.out.println(s);
 		c1.accept("Printing using consumer...");
+		Consumer<String> c2 = System.out::println;
+		c2.accept("Printing using lambda consumer...");
 		
 		//******* BiConsumer
 		Map<String,Integer> m1 = new HashMap<>();

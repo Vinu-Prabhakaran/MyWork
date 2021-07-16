@@ -10,6 +10,14 @@ import java.util.stream.Stream;
 public class StreamTest {
 	
 	public static void main(String[] args) {
+		
+		Stream<Double> randomDouble=Stream.generate(() -> Math.random());
+		System.out.println("Random doubles generated using Stream");
+		randomDouble.limit(10).forEach(System.out::println);
+		Stream<Integer> oddNumbers=Stream.iterate(1, n -> n+2);
+		System.out.println("Odd numbers generated using Stream");
+		oddNumbers.limit(20).forEach(System.out::println);
+		
 		Stream<String> s = Stream.of("Vinu","Ramya","Ammu","Kunji");
 		System.out.println("count() : "+s.count());
 		List<String> nameList = Arrays.asList("Vinu","Ramya","Ammu","Kunji","Ammu");
@@ -66,6 +74,8 @@ public class StreamTest {
 		
 		System.out.println("*** peek() ***");
 		System.out.println(nameList.stream().peek(System.out::println).count());
+		
+		
 		
 	}
 }
