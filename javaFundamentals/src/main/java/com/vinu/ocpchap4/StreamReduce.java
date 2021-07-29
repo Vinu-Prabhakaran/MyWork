@@ -33,5 +33,12 @@ public class StreamReduce {
 		empty.reduce(op).ifPresent(System.out::println);			//no output
 		oneElement.reduce(op).ifPresent(System.out::println);		//same element printed
 		threeElements.reduce(op).ifPresent(System.out::println);	//result of BinaryOperation printed
+		//Reduce using Identity,Accumulator and combiner
+		System.out.println(Stream.of('V','i','n','u')
+				.reduce("", (c, s1) -> c+s1, String::concat));
+		System.out.println(Stream.of("V","i","n","u")
+		  .parallel().reduce("@", String::concat));
+		System.out.println(Stream.of("V","i","n","u")
+				  .reduce("@", (l1,l2)-> l1+"@"+l2));
 	}
 }
