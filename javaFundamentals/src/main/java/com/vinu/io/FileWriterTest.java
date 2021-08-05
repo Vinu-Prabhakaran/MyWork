@@ -11,9 +11,9 @@ public class FileWriterTest {
 		// TODO Auto-generated method stub
 		String buffRead=null;
 		try {
-			FileWriter fw = new FileWriter("D:\\WorkBench\\JAVA_Work\\IOArea\\FileWriterOut.txt");
+			FileWriter fw = new FileWriter("src/main/resources/IO/FileWriterOut.txt");
 			//FileWriter fw = new FileWriter("..\\IOArea\\Data1.txt");
-			BufferedReader br = new BufferedReader(new FileReader("D:\\WorkBench\\JAVA_Work\\IOArea\\File2.txt"));
+			BufferedReader br = new BufferedReader(new FileReader("src/main/resources/IO/File2.txt"));
 			
 			while((buffRead = br.readLine()) != null) {
 				fw.write(buffRead);

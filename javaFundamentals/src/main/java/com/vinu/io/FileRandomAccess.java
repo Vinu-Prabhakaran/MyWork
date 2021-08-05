@@ -12,7 +12,7 @@ public class FileRandomAccess {
 		Date dt = new Date();
 		String lineRead;
 		try {
-			rf = new RandomAccessFile("D:/WorkBench/JAVA_Work/IOArea/File1.txt","rw");
+			rf = new RandomAccessFile("src/main/resources/IO/File1.txt","rw");
 			rf.seek(rf.length());
 			rf.writeBoolean(true);
 			rf.writeInt(1234);

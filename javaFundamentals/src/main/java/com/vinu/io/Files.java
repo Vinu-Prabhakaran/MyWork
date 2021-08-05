@@ -6,7 +6,7 @@ public class Files {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		String dirName="D:\\WorkBench\\JAVA_Work\\IOArea";
+		String dirName="src/main/resources/IO";
 		
 		File f  = new File(dirName);
 		File f1 = new File(dirName,"File1.txt");

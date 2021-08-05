@@ -10,7 +10,7 @@ public class BufferReaderTest {
 		// TODO Auto-generated method stub
 		String readLine ;// to store the String value returned by readLine()
 		try {
-			FileReader fr = new FileReader("D:\\WorkBench\\JAVA_Work\\IOArea\\LoadFile.txt");
+			FileReader fr = new FileReader("src/main/resources/IO/LoadFile.txt");
 			BufferedReader br = new BufferedReader(fr);
 						
 			while ((readLine=br.readLine()) != null) {

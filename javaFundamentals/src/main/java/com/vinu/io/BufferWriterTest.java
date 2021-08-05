@@ -12,8 +12,8 @@ public class BufferWriterTest {
 		// TODO Auto-generated method stub
 		String buffRead=null;
 		try {
-			BufferedWriter bw = new BufferedWriter(new FileWriter("D:\\WorkBench\\JAVA_Work\\IOArea\\BuffWriterOut.txt"));
-			BufferedReader br = new BufferedReader(new FileReader("D:\\WorkBench\\JAVA_Work\\IOArea\\File2.txt"));
+			BufferedWriter bw = new BufferedWriter(new FileWriter("src/main/resources/IO/BuffWriterOut.txt"));
+			BufferedReader br = new BufferedReader(new FileReader("src/main/resources/IO/File2.txt"));
 			
 			while((buffRead = br.readLine()) != null) {
 				bw.write(buffRead);

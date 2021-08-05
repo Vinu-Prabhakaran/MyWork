@@ -77,7 +77,7 @@ public class ObjectStreamSample {
 			e.printStackTrace();
 		}catch (EOFException e) {
 			// TODO Auto-generated catch block
-			
+			System.out.println("EOF");
 			//e.printStackTrace();
 		}catch (IOException e) {
 			// TODO Auto-generated catch block
@@ -94,7 +94,7 @@ public class ObjectStreamSample {
 	
 	public static void main(String[] args) throws IOException,ClassNotFoundException {
 		// TODO Auto-generated method stub
-		File datFile = new File("D:\\WorkBench\\JAVA_Work\\IOArea\\Animals.txt");
+		File datFile = new File("D:\\WorkBench\\MyEclipseworkSpace\\MyWork\\IOArea\\Animals.txt");
 		Animal anim1 = new Animal("Tommy Tiger",6,'T');
 		Animal anim2 = new Animal("Peter Penguin",2,'P');
 		Animal anim3 = new Animal("Ellie Elephant",6,'E');
@@ -104,7 +104,7 @@ public class ObjectStreamSample {
 		animals.add(anim2);
 		animals.add(anim3);
 		
-		createAnimalsFile(animals,datFile);
+		//createAnimalsFile(animals,datFile);
 		System.out.println(getAnimals(datFile));
 
 	}

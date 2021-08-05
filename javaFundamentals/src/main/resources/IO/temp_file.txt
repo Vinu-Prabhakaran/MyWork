@@ -1,0 +1,1 @@
+hello=Helloopen=Zoo is open

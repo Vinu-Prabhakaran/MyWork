@@ -11,7 +11,7 @@ public class FileInputTest {
 		String str;
 		FileInputStream f1;
 		try {
-			f1 = new FileInputStream("D:/WorkBench/JAVA_Work/IOArea/File3.txt");
+			f1 = new FileInputStream("src/main/resources/IO/File3.txt");
 			f1.read(buffer);
 			System.out.println(buffer.toString());  //wont print properly
 			str = new String(buffer);

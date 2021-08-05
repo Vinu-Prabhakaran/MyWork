@@ -9,7 +9,7 @@ public class FileReaderTest {
 		// TODO Auto-generated method stub
 		int ch ;// to store the int value returned by read()
 		try {
-			FileReader fr = new FileReader("D:\\WorkBench\\JAVA_Work\\IOArea\\LoadFile.txt");
+			FileReader fr = new FileReader("src/main/resources/IO/LoadFile.txt");
 			while ((ch=fr.read()) != -1) {
 				System.out.print((char) ch); //note that print is used instead of println
 			}

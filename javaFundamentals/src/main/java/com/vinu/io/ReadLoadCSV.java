@@ -14,8 +14,8 @@ public class ReadLoadCSV {
 		//StringTokenizer st=null;
 		int recCount = 0;
 		try {
-			RandomAccessFile rfinp = new RandomAccessFile("D:\\WorkBench\\JAVA_Work\\IOArea\\LoadFile.txt","r");
-			RandomAccessFile rfout = new RandomAccessFile("D:\\WorkBench\\JAVA_Work\\IOArea\\DetailFile.txt","rw");
+			RandomAccessFile rfinp = new RandomAccessFile("src/main/resources/IO/LoadFile.txt","r");
+			RandomAccessFile rfout = new RandomAccessFile("src/main/resources/IO/DetailFile.txt","rw");
 			while((lineRead = rfinp.readLine()) != null) {
 				//st = new StringTokenizer(lineRead, delim); //Tokenize the string based on delimiter
 				strArr = lineRead.split(delim);  //split based on delimiter into a String array
