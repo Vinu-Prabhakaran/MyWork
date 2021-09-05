@@ -21,7 +21,7 @@ import com.vinu.webservices.movieratingsdataservice.models.UserRating;
 @Service
 public class RatingsService {
 	
-	UserRating ratings = new UserRating(Arrays.asList(new Rating("200", 9),
+	UserRating ratings = new UserRating("vinu",Arrays.asList(new Rating("200", 9),
 			   new Rating("100", 7),
 			   new Rating("101", 8),
 			   new Rating("102", 9)));
@@ -33,7 +33,16 @@ public class RatingsService {
 									.filter(r -> r.getRating().equals(rating))
 									.collect(Collectors.toList());
 		if (moviesByRating.size() > 0) {
-			return new UserRating(moviesByRating);
+			return new UserRating(null,moviesByRating);
+		}else {
+			return new UserRating();
+		}
+	}
+	
+	public UserRating getRatingsByUser(String userId) {
+		//return ratings.getRatingList().stream().filter(r -> r.getRating().equals(rating)).map(r -> r.getMovieId()).collect(Collectors.toList());
+		if (ratings.getUserId().equals(userId)) {			
+			return ratings;
 		}else {
 			return new UserRating();
 		}

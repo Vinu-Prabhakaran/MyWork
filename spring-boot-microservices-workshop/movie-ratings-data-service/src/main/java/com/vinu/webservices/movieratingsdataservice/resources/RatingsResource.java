@@ -25,7 +25,7 @@ public class RatingsResource {
 	@Autowired
 	RatingsService ratingsService;
 	
-	@GetMapping("/{movieId}")
+	@GetMapping("/movies/{movieId}")
 	public Rating getMovieRating(@PathVariable String movieId) {
 		return ratingsService.getMovieRating(movieId);
 	}
@@ -33,5 +33,10 @@ public class RatingsResource {
 	@GetMapping("/byrating/{rating}")
 	public UserRating getMoviesByRating(@PathVariable Integer rating) {
 		return ratingsService.getMovieListByRating(rating);
+	}
+	
+	@GetMapping("/user/{userId}")
+	public UserRating getUserRating(@PathVariable String userId) {
+		return ratingsService.getRatingsByUser(userId);
 	}
 }

@@ -4,7 +4,7 @@
 package com.vinu.webservices.moviecatalogservice.resources;
 
 import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -19,8 +19,10 @@ import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import com.vinu.webservices.moviecatalogservice.models.CatalogItem;
 import com.vinu.webservices.moviecatalogservice.models.CatalogItems;
 import com.vinu.webservices.moviecatalogservice.models.Movie;
-import com.vinu.webservices.moviecatalogservice.models.Movies;
+import com.vinu.webservices.moviecatalogservice.models.Rating;
 import com.vinu.webservices.moviecatalogservice.models.UserRating;
+import com.vinu.webservices.moviecatalogservice.services.MovieInfo;
+import com.vinu.webservices.moviecatalogservice.services.UserRatingInfo;
 
 /**
  * @author Vinu Prabhakaran
@@ -34,23 +36,23 @@ public class MovieCatalogResource {
 	@Autowired
 	RestTemplate restTemplate;
 	
-	@Value("${ratingsurl}")
-	String ratingsUrl;
-	@Value("${moviesurl}")
-	String moviesUrl;
+	@Autowired
+	UserRatingInfo userRatingInfo;
 	
-	@GetMapping("/ratings/{rating}")
-	@HystrixCommand(fallbackMethod="getFallbackCatalog")
-	public CatalogItems getCatalog(@PathVariable Integer rating){
+	@Autowired
+	MovieInfo movieInfo;
+	
+	@GetMapping("/user/{userId}")
+	public CatalogItems getCatalog(@PathVariable String userId){
 		
 		//return Arrays.asList(new CatalogItem("Martrix", "Hifi", 8));
 		//get all rated movies, collect details for each of them and return as a list
-		UserRating ratings = restTemplate.getForEntity(ratingsUrl+rating.toString(), UserRating.class).getBody();
+		UserRating ratings = userRatingInfo.getUserRating(userId);
 		List<CatalogItem> catItems=new ArrayList<>();
 		//return ratings;
 		ratings.getRatingList().forEach(r -> {
 			System.out.println("Call MovieInfo for "+r.getMovieId());
-			Movie movie=restTemplate.getForEntity(moviesUrl+r.getMovieId(), Movie.class).getBody();
+			Movie movie=movieInfo.getMovieForRating(r);
 			//WebClient Substitute for RestTemplate
 			/*Movie movie=WebClient.builder().build()
 						.get()
@@ -62,9 +64,6 @@ public class MovieCatalogResource {
 			});
 		return new CatalogItems(catItems);
 	}
-	public CatalogItems getFallbackCatalog(@PathVariable Integer rating){
-		List<CatalogItem> catItems=new ArrayList<>();
-		catItems.add(new CatalogItem("No Movie", "FallbackDescription", 0));
-		return new CatalogItems(catItems);
-	}
+	
+
 }
