@@ -1,26 +1,26 @@
 /**
  * 
  */
-package com.vinu.codechallenge;
+package com.vinu.codechallenge.datastructures;
 
 /**
  * @author Vinu Prabhakaran
  *         on Aug 22, 2021
  *
  */
-class Node{
+class TreeNode{
 	
 	int key;
 	String name;
 	
-	Node leftChild;
-	Node rightChild;
+	TreeNode leftChild;
+	TreeNode rightChild;
 	@Override
 	public String toString() {
 		return "Node [key=" + key + ", name=" + name + "]";
 	}
 	
-	public Node(int key, String name) {
+	public TreeNode(int key, String name) {
 		super();
 		this.key = key;
 		this.name = name;
@@ -28,18 +28,18 @@ class Node{
 	
 }
 
-public class BinaryTree {
+public class BinarySearchTree {
 	
-	private Node root;
+	private TreeNode root;
 	
 	public void addNode(int key,String name) {
-		Node newNode = new Node(key,name);
+		TreeNode newNode = new TreeNode(key,name);
 		
 		if (root == null) {
 			root=newNode;
 			return;
 		} 
-		Node currNode=root;
+		TreeNode currNode=root;
 		while(true) {
 			if(key < currNode.key) {
 				if(currNode.leftChild == null) {
@@ -65,7 +65,7 @@ public class BinaryTree {
 		}
 	}
 	//Ascending order - left,root,right
-	public void inorderTraversal(Node focusNode) {
+	public void inorderTraversal(TreeNode focusNode) {
 		
 		if (focusNode != null) {
 			inorderTraversal(focusNode.leftChild);
@@ -74,7 +74,7 @@ public class BinaryTree {
 		}
 	}
 	//preOrder - start from root , left,right
-	public void preorderTraversal(Node focusNode) {
+	public void preorderTraversal(TreeNode focusNode) {
 		
 		if (focusNode != null) {
 			System.out.println(focusNode);
@@ -83,7 +83,7 @@ public class BinaryTree {
 		}
 	}
 	//postOrder - left,right,root
-	public void postorderTraversal(Node focusNode) {
+	public void postorderTraversal(TreeNode focusNode) {
 		
 		if (focusNode != null) {
 			postorderTraversal(focusNode.leftChild);
@@ -92,7 +92,7 @@ public class BinaryTree {
 
 		}
 	}
-	public int treeDepth(Node focusNode) {
+	public int treeDepth(TreeNode focusNode) {
 		if (focusNode == null) {
 			return -1;
 		}
@@ -108,7 +108,7 @@ public class BinaryTree {
 		
 	}
 	
-	public int numOfNodes(Node focusNode) {
+	public int numOfNodes(TreeNode focusNode) {
 		if (focusNode == null) {
 			return 0;
 		}
@@ -116,14 +116,14 @@ public class BinaryTree {
 		
 	}
 	
-	public Node searchNode(int key) {
+	public TreeNode searchNode(int key) {
 		
-		Node currNode=root;
+		TreeNode currNode=root;
 		while (key != currNode.key) {
 			if (key < currNode.key) {
 				currNode=currNode.leftChild;
 				System.out.print(currNode +"=>");
-			}else {
+			}else if(key > currNode.key){
 				currNode=currNode.rightChild;
 				System.out.print(currNode +"=>");
 			}
@@ -132,9 +132,90 @@ public class BinaryTree {
 		return currNode;
 	
 	}
+	
+	public void deleteNode(int key) {
+		
+		TreeNode currNode=root;
+		TreeNode parentNode=root;
+		boolean isLeftChild=true;
+		
+		// Search for the node keeping track of its parent O(log n)
+		while (currNode != null && key != currNode.key) {
+			parentNode = currNode;
+			if (key < currNode.key) {
+				currNode= currNode.leftChild;
+				isLeftChild = true;
+			}else {
+				currNode=currNode.rightChild;
+				isLeftChild = false;
+			}
+		}
+		//Check if found
+		if (currNode == null) {
+			System.out.println("Node to be deleted not found");
+			return;
+		}
+		
+		//Check if the node to be deleted is a leaf
+		if (currNode.leftChild == null && currNode.rightChild == null) {
+			if (currNode == root) {
+				root = null;
+			} else { // current Node is not a root
+				if (isLeftChild) {
+					parentNode.leftChild = null;
+				}else {
+					parentNode.rightChild = null;
+				}
+			}
+		}else if (currNode.leftChild == null) { // Node has only right child
+			if (currNode == root) { //Node to be deleted is root and has only right children.
+				root = currNode.rightChild;
+			}else {
+				if (isLeftChild) {
+					parentNode.leftChild = currNode.rightChild;
+				}else {
+					parentNode.rightChild = currNode.rightChild;
+				}
+			}
+		}else if (currNode.rightChild == null){ // Node has only left child
+			if (currNode == root) { //Node to be deleted is root and has only left children.
+				root = currNode.leftChild;
+			}else {
+				if (isLeftChild) {
+					parentNode.leftChild = currNode.leftChild;
+				}else {
+					parentNode.rightChild = currNode.leftChild;
+				}
+			}
+		}
+		
+		
+	}
+	
+	public void levelOrderTraversal(TreeNode focusNode) {
+		int height=treeDepth(focusNode);
+		System.out.println("Height :"+height);
+		for (int i = 1; i <=height+1; i++) {
+			printCurrentlevel(focusNode,i);
+		}	
+	}
+	
+	public void printCurrentlevel(TreeNode focusNode,int level) {
+		if (focusNode == null) {
+			return;
+		}
+		if (level == 1) {
+			System.out.println(focusNode);
+		}else {
+			printCurrentlevel(focusNode.leftChild, level-1);
+			printCurrentlevel(focusNode.rightChild, level-1);
+
+		}
+	}
+	
 	public static void main(String[] args) {
 		
-		BinaryTree myTree=new BinaryTree();
+		BinarySearchTree myTree=new BinarySearchTree();
 		
 		myTree.addNode(50, "A");
 		myTree.addNode(15, "B");
@@ -155,6 +236,8 @@ public class BinaryTree {
 		System.out.println("# of Nodes"+ myTree.numOfNodes(myTree.root));
 		System.out.println("Searching for a node");
 		System.out.println("\n"+myTree.searchNode(30));
+		System.out.println("Level Order Traversal");
+		myTree.levelOrderTraversal(myTree.root);
 		
 		
 	}
