@@ -16,6 +16,7 @@ public class Stack {
 	public Stack(int capacity) {
 		this.capacity=capacity;
 		this.arr=new int[capacity];
+		top = -1;
 	}
 	
 	public boolean isFull() {
@@ -49,7 +50,7 @@ public class Stack {
 		
 		Stack stack=new Stack(5);
 		
-		
+		System.out.println(stack.pop());
 		stack.push(10);
 		System.out.println(stack.pop());
 		System.out.println(stack.top);
