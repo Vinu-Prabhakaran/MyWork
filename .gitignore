@@ -22,12 +22,13 @@
 hs_err_pid*
 
 target/
-*.iml
-.settings
-.project
-.classpath
+**/*.iml
+**/.settings
+**/.project
+**/.classpath
 Servers/
-.metadata
-.plugins/
-.recommenders/
+**/.metadata
+**/.plugins/
+**/.recommenders/
+**/.idea
 #Test
