@@ -15,6 +15,7 @@ public class Exercise2 {
         // Print all users in the ReactiveSources.userFlux stream
         ReactiveSources.userFlux().subscribe(System.out::println);
 
+        // Below code is added so that the main program waits for the elememnts to be emitted from the Flux with the delays in place
         System.out.println("Press a key to end");
         System.in.read();
     }
