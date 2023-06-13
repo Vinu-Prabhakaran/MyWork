@@ -7,15 +7,15 @@
   <version>0.0.1-SNAPSHOT</version>
   <packaging>jar</packaging>
 
-  <name>mavenDemoApp</name>
-  <url>http://maven.apache.org</url>
+    <name>javaFundamentals</name>
+    <url>http://maven.apache.org</url>
 
-  <properties>
-    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <maven.compiler.source>1.8</maven.compiler.source>
-    <maven.compiler.target>1.8</maven.compiler.target>
-    <!-- <java.version>1.8</java.version> -->
-  </properties>
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.compiler.source>17</maven.compiler.source>
+        <maven.compiler.target>17</maven.compiler.target>
+        <!-- <java.version>1.8</java.version> -->
+    </properties>
 
   <dependencies>
 	<dependency>
@@ -32,19 +32,25 @@
     <dependency>
 	    <groupId>org.projectlombok</groupId>
 	    <artifactId>lombok</artifactId>
-	    <version>1.16.20</version>
+	    <version>1.18.24</version>
 	</dependency>
 	<!-- JSON To Pojo -->
-	<dependency>  
-	    <groupId>org.jsonschema2pojo</groupId>  
-	    <artifactId>jsonschema2pojo-core</artifactId>  
-	    <version>0.4.35</version>  
+	<dependency>
+	    <groupId>org.jsonschema2pojo</groupId>
+	    <artifactId>jsonschema2pojo-core</artifactId>
+	    <version>0.4.35</version>
 	</dependency>
 	<!-- https://mvnrepository.com/artifact/commons-codec/commons-codec -->
 	<dependency>
 	    <groupId>commons-codec</groupId>
 	    <artifactId>commons-codec</artifactId>
 	    <version>1.11</version>
-	</dependency>	
+	</dependency>
+  <!-- https://mvnrepository.com/artifact/org.apache.derby/derby -->
+  <!-- <dependency>
+      <groupId>org.apache.derby</groupId>
+      <artifactId>derby</artifactId>
+      <version>10.14.2.0</version>
+  </dependency> -->
   </dependencies>
 </project>
