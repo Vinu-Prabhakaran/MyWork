@@ -33,7 +33,7 @@ public class HibernateApp {
 										  new Student(4567, "Aditi Vinu", "aditi.vinu@gmail.com",new Department(300,"Civil")));
 		
 		Configuration conf=new Configuration()
-					       .configure(new File("src/main/resources/hibernate.cfg.xml"))
+					       .configure(new File("DBConnectPgms/src/main/resources/hibernate.cfg.xml"))
 					       .addAnnotatedClass(Student.class)
 					       .addAnnotatedClass(Department.class);
 		SessionFactory sf= conf.buildSessionFactory();

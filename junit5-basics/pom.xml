@@ -6,10 +6,10 @@
   <name>junit5-basics</name>
   <description>Project to learn JUnit5.</description>
   <properties>
-    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <maven.compiler.source>1.8</maven.compiler.source>
-    <maven.compiler.target>1.8</maven.compiler.target>
-    <junit.jupiter.version>5.4.0</junit.jupiter.version>
+      <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+      <maven.compiler.source>17</maven.compiler.source>
+      <maven.compiler.target>17</maven.compiler.target>
+    <junit.jupiter.version>5.10.0</junit.jupiter.version>
   </properties> 
   <dependencies>
   	<!-- https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter-engine -->
@@ -25,7 +25,13 @@
 	    <artifactId>junit-jupiter-api</artifactId>
 	    <version>${junit.jupiter.version}</version>
 	    <scope>test</scope>
-	</dependency>	
+	</dependency>
+      <dependency>
+          <groupId>org.junit.jupiter</groupId>
+          <artifactId>junit-jupiter-params</artifactId>
+          <version>${junit.jupiter.version}</version>
+          <scope>test</scope>
+      </dependency>
   </dependencies>
   <build>
     <pluginManagement>
