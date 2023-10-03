@@ -1,0 +1,18 @@
+type Query {
+    hello:String
+    helloWithArgument(name: String):String
+    employeeById(id: ID): Employee
+    employees:[Employee]
+
+}
+
+type Employee{
+    id: ID!
+    name: String!
+    department:Department
+}
+
+type Department{
+    depId:ID
+    depName:String
+}
