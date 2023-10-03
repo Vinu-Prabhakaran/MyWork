@@ -3,11 +3,16 @@ package com.vinu.graphql.controller;
 import com.vinu.graphql.model.Department;
 import com.vinu.graphql.model.Employee;
 import org.springframework.graphql.data.method.annotation.Argument;
+import org.springframework.graphql.data.method.annotation.BatchMapping;
 import org.springframework.graphql.data.method.annotation.QueryMapping;
 import org.springframework.graphql.data.method.annotation.SchemaMapping;
 import org.springframework.stereotype.Controller;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
+
+import java.util.*;
+import java.util.function.Function;
+import java.util.stream.Collectors;
 
 import static com.vinu.graphql.model.Department.departmentList;
 import static com.vinu.graphql.model.Employee.employeeList;
@@ -50,12 +55,27 @@ public class GraphqlDemoController {
      * @param employee
      * @return
      */
-    @SchemaMapping(typeName = "Employee", field = "department") //field to be passed if method name doesnt match field name in schema
+   /* @SchemaMapping(typeName = "Employee", field = "department") //field to be passed if method name doesnt match field name in schema
     public Mono<Department> getDepartmentForEmployee(Employee employee){
         System.out.println("Getting department details for "+employee);
         return Mono.just(departmentList.stream()
                 .filter(d -> d.depId().equals(employee.depId()))
                 .findFirst()
                 .orElse(null));
+    }*/
+
+    /**
+     * Here we solve N+1 problem using BatchMapping to create a Map of Employee and Department
+     * <p>This being a 1 to 1 relation has a corresponding map. If it was 1 to N from Employee to Department
+     * we could have a Map&lt;Customer,List&lt;Department&gt;&gt; </p>
+     * @param employees
+     * @return
+     */
+    @BatchMapping(typeName = "Employee", field = "department")
+    public Map<Employee,Department> getEmployeeDepartMentMap(List<Employee> employees){
+        System.out.println("Getting department details for "+employees);
+        return employees.stream()
+                .collect(Collectors.toMap(Function.identity(),e -> departmentList.stream().filter(d -> d.depId().equals(e.depId())).findFirst().orElse(null)))
+                ;
     }
 }
