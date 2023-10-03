@@ -11,7 +11,7 @@ package com.vinu.ocpchap7;
 public class ExtendThread extends Thread{
 	
 	public ExtendThread(){
-		System.out.println("ExtendThread Instance created");
+		System.out.println("ExtendThread Instance created "+ Thread.currentThread().getName());
 	}
 	@Override
 	public void run() {
