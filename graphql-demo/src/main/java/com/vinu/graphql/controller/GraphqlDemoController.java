@@ -5,7 +5,6 @@ import com.vinu.graphql.model.Employee;
 import org.springframework.graphql.data.method.annotation.Argument;
 import org.springframework.graphql.data.method.annotation.BatchMapping;
 import org.springframework.graphql.data.method.annotation.QueryMapping;
-import org.springframework.graphql.data.method.annotation.SchemaMapping;
 import org.springframework.stereotype.Controller;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
@@ -72,10 +71,10 @@ public class GraphqlDemoController {
      * @return
      */
     @BatchMapping(typeName = "Employee", field = "department")
-    public Map<Employee,Department> getEmployeeDepartMentMap(List<Employee> employees){
+    public Mono<Map<Employee, Department>> getEmployeeDepartmentMap(List<Employee> employees){
         System.out.println("Getting department details for "+employees);
-        return employees.stream()
+        return Mono.just(employees.stream()
                 .collect(Collectors.toMap(Function.identity(),e -> departmentList.stream().filter(d -> d.depId().equals(e.depId())).findFirst().orElse(null)))
-                ;
+        );
     }
 }
