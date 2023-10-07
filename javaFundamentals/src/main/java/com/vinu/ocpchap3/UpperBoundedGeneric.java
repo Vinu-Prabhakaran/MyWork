@@ -13,13 +13,13 @@ public class UpperBoundedGeneric {
 	public static void main(String[] args) {
 		
 		List<Integer> list = new ArrayList<>();
-		list.add(new Integer(123));
+		list.add(Integer.valueOf(123));
 		list.add(234);			// this is autoboxed
 		
 		print(list);
 		
 		List<Float> floatList = new ArrayList<>();
-		floatList.add(new Float(123));
+		floatList.add(Float.valueOf(123.34f));
 		floatList.add(234.0f);			// this is autoboxed
 		
 		print(list);
