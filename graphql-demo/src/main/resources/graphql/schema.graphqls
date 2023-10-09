@@ -6,6 +6,10 @@ type Query {
 
 }
 
+type Mutation{
+    addEmployee(name: String, depId: String ) : Employee
+}
+
 type Employee{
     id: ID!
     name: String!
