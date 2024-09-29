@@ -11,13 +11,13 @@ public class PatternMatching {
             System.out.println(((Integer) number).compareTo(5));
         }
     }
-    static void compareIntegersUsingPatternMatchig(Number number){
+    static void compareIntegersUsingPatternMatching(Number number){
         if (number instanceof Integer intNum){
             System.out.println(intNum.compareTo(5));
         }
     }
     public static void main(String[] args) {
         compareIntegers(4);
-        compareIntegers(6);
+        compareIntegersUsingPatternMatching(6);
     }
 }
