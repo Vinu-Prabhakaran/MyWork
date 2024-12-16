@@ -20,8 +20,9 @@ public class StreamTest {
 		
 		Stream<String> s = Stream.of("Vinu","Ramya","Ammu","Kunji");
 		System.out.println("count() : "+s.count());
-		List<String> nameList = Arrays.asList("Vinu","Ramya","Ammu","Kunji","Ammu");
-		System.out.println("Min based on alpha order : "+nameList.stream().min((s1,s2) -> s2.charAt(0) - s1.charAt(0)));
+		List<String> nameList = Arrays.asList("VinuCP","Ramya","Ameya","Kunji","Ammu");
+		System.out.println("Min based on alpha order : "+nameList.stream().min((s1,s2) -> s1.charAt(0) - s2.charAt(0)));
+		System.out.println("Min based on length : "+nameList.stream().min((s1,s2) -> s1.length() - s2.length()));
 		System.out.println("FindAny : "+nameList.stream().findAny());
 		
 		Stream<String> s2=nameList.stream().filter(x -> x.endsWith("u"));
@@ -50,7 +51,7 @@ public class StreamTest {
 		threeElements.reduce(op).ifPresent(System.out::println);	//result of BinaryOperation printed
 		
 		System.out.println("**** collect() *****");
-		System.out.println(letters.stream().collect(StringBuilder::new,StringBuilder::append,StringBuilder::append));
+		//System.out.println(letters.stream().collect(StringBuilder::new,StringBuilder::append,StringBuilder::append));
 		
 		System.out.println("Time for Intermediate Operations");
 		
@@ -73,7 +74,7 @@ public class StreamTest {
 		nameList.stream().sorted(Comparator.reverseOrder()).forEach(System.out::println);
 		
 		System.out.println("*** peek() ***");
-		System.out.println(nameList.stream().peek(System.out::println).count());
+		System.out.println(nameList.stream().peek(System.out::println).limit(3).count());
 		
 		
 		
