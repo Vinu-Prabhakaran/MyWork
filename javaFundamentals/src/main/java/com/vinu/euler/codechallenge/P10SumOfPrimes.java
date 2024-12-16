@@ -32,7 +32,7 @@ public class P10SumOfPrimes {
 				return false;
 			}
 		}
-		System.out.println(num);
+		//System.out.println(num);
 		return true;
 	}
 }
